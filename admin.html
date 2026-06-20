@@ -8,6 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<!-- Lock page immediately before render to prevent flash of admin content -->
+<script>if (!sessionStorage.getItem('dw_auth')) document.documentElement.classList.add('locked');</script>
+
 <style>
 :root{
   --ink-2:#111827;
@@ -33,7 +37,68 @@ body{
 }
 a{color:inherit;text-decoration:none;}
 
-/* layout */
+/* ── hide admin when locked ───────────────────────────────────────────────── */
+html.locked .adm-header,
+html.locked main,
+html.locked footer { display:none; }
+
+/* ── login screen ─────────────────────────────────────────────────────────── */
+.login-screen{
+  display:none;
+  position:fixed;inset:0;z-index:200;
+  background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
+  align-items:center;justify-content:center;padding:24px;
+}
+html.locked .login-screen{ display:flex; }
+
+.login-box{
+  width:100%;max-width:380px;
+  background:#0b1120;border:1px solid var(--line);border-radius:10px;
+  padding:36px 32px 32px;
+}
+.login-brand{
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:1.25rem;
+  margin-bottom:4px;text-align:center;
+}
+.login-brand span{color:var(--amber);}
+.login-sub{
+  font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--txt-mut);text-align:center;margin-bottom:28px;
+}
+.login-field{display:grid;gap:7px;margin-bottom:16px;}
+.login-field label{
+  font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--txt-mut);
+}
+.login-input{
+  width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:4px;
+  padding:13px 15px;color:var(--txt);font-family:'Inter',sans-serif;font-size:1rem;
+  transition:border-color .2s;
+}
+.login-input:focus{outline:none;border-color:var(--amber);}
+.login-input.shake{animation:shake .35s ease both;}
+.btn-login{
+  width:100%;background:var(--amber);color:#0b1120;border:none;border-radius:4px;
+  padding:13px;font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;
+  cursor:pointer;margin-top:6px;transition:background .2s,transform .15s;
+}
+.btn-login:hover{background:var(--amber-bright);transform:translateY(-1px);}
+.btn-login:active{transform:none;}
+.btn-login:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.login-err{
+  font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.05em;
+  color:var(--red);text-align:center;margin-top:12px;min-height:1.4em;
+}
+
+@keyframes shake{
+  0%,100%{translate:0 0;}
+  20%{translate:-8px 0;}
+  40%{translate:8px 0;}
+  60%{translate:-5px 0;}
+  80%{translate:5px 0;}
+}
+
+/* ── layout ───────────────────────────────────────────────────────────────── */
 .wrap{max-width:880px;margin:0 auto;padding:0 24px;}
 
 /* admin header */
@@ -42,12 +107,11 @@ a{color:inherit;text-decoration:none;}
   background:rgba(11,16,32,.96);
   -webkit-backdrop-filter:blur(10px);
   backdrop-filter:blur(10px);
-  padding:0;
   position:sticky;top:0;z-index:20;
 }
 .adm-header .inner{
   max-width:880px;margin:0 auto;padding:0 24px;
-  display:flex;align-items:center;justify-content:space-between;height:60px;
+  display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px;
 }
 .brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:1rem;}
 .brand span{color:var(--amber);}
@@ -55,8 +119,15 @@ a{color:inherit;text-decoration:none;}
   font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
   background:var(--copper);color:#0b1120;padding:3px 8px;border-radius:2px;margin-left:10px;
 }
+.header-right{display:flex;align-items:center;gap:16px;}
 .back-link{font-size:.85rem;color:var(--txt-mut);transition:color .2s;}
 .back-link:hover{color:var(--txt);}
+.btn-logout{
+  background:none;border:1px solid var(--line);border-radius:3px;
+  padding:6px 14px;font-size:.8rem;color:var(--txt-mut);cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.btn-logout:hover{border-color:var(--red);color:var(--red);}
 
 main{padding:32px 0 60px;}
 
@@ -65,9 +136,7 @@ main{padding:32px 0 60px;}
   background:var(--ink-2);border:1px solid var(--line);border-radius:6px;
   padding:24px;margin-bottom:20px;
 }
-.card h2{
-  font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:6px;
-}
+.card h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:6px;}
 .card p{font-size:.87rem;color:var(--txt-mut);margin-bottom:18px;line-height:1.5;}
 .card code{color:var(--amber);font-family:'Space Mono',monospace;font-size:.85em;}
 
@@ -84,7 +153,8 @@ main{padding:32px 0 60px;}
 /* buttons */
 .btn{
   border:none;border-radius:3px;cursor:pointer;font-weight:600;
-  padding:11px 20px;font-size:.88rem;transition:background .2s,border-color .2s,color .2s,opacity .2s;
+  padding:11px 20px;font-size:.88rem;
+  transition:background .2s,border-color .2s,color .2s,opacity .2s;
   white-space:nowrap;
 }
 .btn-primary{background:var(--amber);color:#0b1120;font-family:'Archivo',sans-serif;}
@@ -123,8 +193,7 @@ main{padding:32px 0 60px;}
 .proj-item{
   background:var(--panel);border:1px solid var(--line);border-radius:5px;
   padding:15px 18px;
-  display:flex;align-items:center;justify-content:space-between;gap:14px;
-  flex-wrap:wrap;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
 }
 .proj-item .info .tag{
   font-family:'Space Mono',monospace;font-size:.63rem;letter-spacing:.12em;
@@ -140,7 +209,7 @@ main{padding:32px 0 60px;}
   font-family:'Space Mono',monospace;font-size:.78rem;color:var(--txt-mut);letter-spacing:.06em;
 }
 
-/* overlay */
+/* edit overlay */
 .overlay{
   position:fixed;inset:0;background:rgba(2,6,23,.75);
   -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
@@ -171,11 +240,13 @@ main{padding:32px 0 60px;}
   background:var(--ink-2);border:1px solid var(--line);border-radius:3px;
   padding:11px 13px;color:var(--txt);font-family:'Inter',sans-serif;font-size:.88rem;width:100%;
 }
-.field input:focus,.field textarea:focus,.field select:focus{
-  outline:none;border-color:var(--amber);
-}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--amber);}
 .field textarea{min-height:72px;resize:vertical;}
-.field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;}
+.field select{
+  cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;
+}
 .field select option{background:#0b1120;}
 
 .img-row{display:flex;gap:8px;}
@@ -200,7 +271,6 @@ main{padding:32px 0 60px;}
 .upload-note.show{display:block;}
 
 .hidden{display:none;}
-
 .panel-footer{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
 
 /* footer */
@@ -213,18 +283,37 @@ footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.
   .proj-item{flex-direction:column;align-items:flex-start;}
   .overlay{padding:16px 12px;}
   .edit-panel{padding:20px;}
+  .login-box{padding:28px 20px 24px;}
 }
 </style>
 </head>
 <body>
 
+<!-- ── Login screen ────────────────────────────────────────────────────────── -->
+<div class="login-screen" id="login-screen" role="dialog" aria-modal="true" aria-label="Admin login">
+  <div class="login-box">
+    <div class="login-brand">Darskee<span>Works</span></div>
+    <div class="login-sub">Admin Panel</div>
+    <div class="login-field">
+      <label for="login-pw">Password</label>
+      <input type="password" class="login-input" id="login-pw" placeholder="Enter password" autocomplete="current-password" />
+    </div>
+    <button type="button" class="btn-login" id="btn-login">Log in</button>
+    <div class="login-err" id="login-err"></div>
+  </div>
+</div>
+
+<!-- ── Admin UI (hidden until logged in) ─────────────────────────────────── -->
 <header class="adm-header">
   <div class="inner">
     <div>
       <span class="brand">Darskee<span>Works</span></span>
       <span class="badge">Admin</span>
     </div>
-    <a class="back-link" href="index.html">← Back to site</a>
+    <div class="header-right">
+      <a class="back-link" href="index.html">← Back to site</a>
+      <button type="button" class="btn-logout" id="btn-logout">Log out</button>
+    </div>
   </div>
 </header>
 
@@ -232,12 +321,12 @@ footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.
   <div class="wrap">
 
     <!-- GitHub connection -->
-    <div class="card" id="token-card">
+    <div class="card">
       <h2>GitHub Connection</h2>
       <p>
         Paste a GitHub <strong>Personal Access Token</strong> with <code>repo</code> scope.
-        It is stored only in your browser's localStorage and is only ever sent to <code>api.github.com</code>.
-        <br>Create one at: <code>github.com → Settings → Developer settings → Personal access tokens → Fine-grained</code>
+        Stored only in your browser's localStorage — only ever sent to <code>api.github.com</code>.<br>
+        Create one at: <code>github.com → Settings → Developer settings → Personal access tokens → Fine-grained</code>
         (needs <em>Contents: Read &amp; write</em> on this repo).
       </p>
       <div class="token-row">
@@ -248,9 +337,8 @@ footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.
       <div id="conn-status" hidden></div>
     </div>
 
-    <!-- Projects panel (shown after connect) -->
+    <!-- Projects panel -->
     <div class="projects-panel" id="projects-panel">
-
       <div class="card">
         <div class="section-bar">
           <h2>Works &amp; Projects</h2>
@@ -261,7 +349,6 @@ footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.
         </div>
         <div class="proj-list" id="proj-list"></div>
       </div>
-
     </div>
 
   </div>
@@ -292,7 +379,6 @@ footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.
       <label for="f-platform-custom">Custom platform label</label>
       <input type="text" id="f-platform-custom" placeholder="e.g. Chrome Extension" />
     </div>
-
     <div class="field">
       <label for="f-name">Project name</label>
       <input type="text" id="f-name" placeholder="My App" />
@@ -328,6 +414,67 @@ footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.
 <script>
 'use strict';
 
+// ── auth ──────────────────────────────────────────────────────────────────────
+// SHA-256 of "@Darskeeworks2026" — password never stored in plaintext
+var PW_HASH = 'cae14c3b73c6bb23602f1f9e3e8fc2c281a9249b1f8792f420eaa71901d41075';
+
+async function sha256(str) {
+  var buf  = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2,'0'); }).join('');
+}
+
+document.getElementById('btn-login').addEventListener('click', attemptLogin);
+document.getElementById('login-pw').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') attemptLogin();
+});
+
+async function attemptLogin() {
+  var pw  = document.getElementById('login-pw').value;
+  var btn = document.getElementById('btn-login');
+  var err = document.getElementById('login-err');
+
+  if (!pw) { err.textContent = 'Enter the password.'; return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Checking…';
+
+  var hash = await sha256(pw);
+
+  if (hash === PW_HASH) {
+    sessionStorage.setItem('dw_auth', '1');
+    document.documentElement.classList.remove('locked');
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('login-pw').value = '';
+    err.textContent = '';
+    // auto-restore GitHub token if saved
+    var saved = localStorage.getItem('dw_admin_token');
+    if (saved) document.getElementById('token-input').value = saved;
+  } else {
+    var input = document.getElementById('login-pw');
+    input.classList.remove('shake');
+    void input.offsetWidth; // trigger reflow to restart animation
+    input.classList.add('shake');
+    err.textContent = 'Incorrect password.';
+    document.getElementById('login-pw').value = '';
+    document.getElementById('login-pw').focus();
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Log in';
+}
+
+document.getElementById('btn-logout').addEventListener('click', function () {
+  sessionStorage.removeItem('dw_auth');
+  location.reload();
+});
+
+// Focus password field on load
+window.addEventListener('load', function () {
+  if (document.documentElement.classList.contains('locked')) {
+    document.getElementById('login-pw').focus();
+  }
+});
+
 // ── config ────────────────────────────────────────────────────────────────────
 var OWNER  = 'DarskeeWorks-Services';
 var REPO   = 'darskeeworks';
@@ -341,9 +488,7 @@ var fileSha   = '';
 var editIndex = -1;
 
 // ── helpers ───────────────────────────────────────────────────────────────────
-function getToken() {
-  return document.getElementById('token-input').value.trim();
-}
+function getToken() { return document.getElementById('token-input').value.trim(); }
 
 function ghHeaders() {
   return {
@@ -370,18 +515,16 @@ function esc(s) {
   return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function b64Encode(str) {
-  return btoa(unescape(encodeURIComponent(str)));
-}
+function b64Encode(str) { return btoa(unescape(encodeURIComponent(str))); }
+function b64Decode(str) { return decodeURIComponent(escape(atob(str.replace(/\s/g,'')))); }
 
-function b64Decode(str) {
-  return decodeURIComponent(escape(atob(str.replace(/\s/g, ''))));
-}
-
-// ── restore saved token on load ───────────────────────────────────────────────
+// ── restore GitHub token after login ─────────────────────────────────────────
+// (also done in attemptLogin for the smooth case; this handles page reload when already authed)
 (function () {
-  var saved = localStorage.getItem('dw_admin_token');
-  if (saved) document.getElementById('token-input').value = saved;
+  if (!document.documentElement.classList.contains('locked')) {
+    var saved = localStorage.getItem('dw_admin_token');
+    if (saved) document.getElementById('token-input').value = saved;
+  }
 })();
 
 // ── connect ───────────────────────────────────────────────────────────────────
@@ -440,7 +583,7 @@ function renderList() {
 
 // ── delete ────────────────────────────────────────────────────────────────────
 function removeProject(i) {
-  if (!confirm('Delete "' + projects[i].name + '"? (This only removes it locally until you push.)')) return;
+  if (!confirm('Delete "' + projects[i].name + '"? (Local only until you push.)')) return;
   projects.splice(i, 1);
   renderList();
 }
@@ -467,7 +610,7 @@ async function pushToGitHub() {
     }
     var result = await res.json();
     fileSha = result.content.sha;
-    showStatus('conn-status', '✓ Pushed! Commit ' + result.commit.sha.slice(0, 7) + ' · ' + projects.length + ' project(s)', 'ok');
+    showStatus('conn-status', '✓ Pushed! Commit ' + result.commit.sha.slice(0,7) + ' · ' + projects.length + ' project(s)', 'ok');
   } catch (err) {
     showStatus('conn-status', 'Push failed: ' + err.message, 'err');
   }
@@ -491,7 +634,6 @@ document.getElementById('f-platform').addEventListener('change', function () {
 function openEdit(index) {
   editIndex = index;
   document.getElementById('panel-title').textContent = index === -1 ? 'Add project' : 'Edit project';
-
   var p = index === -1 ? { platform:'', name:'', description:'', image:'', link:'' } : projects[index];
 
   var sel = document.getElementById('f-platform');
@@ -507,10 +649,10 @@ function openEdit(index) {
     document.getElementById('custom-platform-wrap').classList.add('hidden');
   }
 
-  document.getElementById('f-name').value        = p.name        || '';
-  document.getElementById('f-desc').value        = p.description || '';
-  document.getElementById('f-image').value       = p.image       || '';
-  document.getElementById('f-link').value        = p.link        || '';
+  document.getElementById('f-name').value  = p.name        || '';
+  document.getElementById('f-desc').value  = p.description || '';
+  document.getElementById('f-image').value = p.image       || '';
+  document.getElementById('f-link').value  = p.link        || '';
   document.getElementById('upload-note').classList.remove('show');
   updatePreview(p.image || '');
 
@@ -518,13 +660,9 @@ function openEdit(index) {
   setTimeout(function () { document.getElementById('f-name').focus(); }, 60);
 }
 
-function closePanel() {
-  document.getElementById('overlay').classList.remove('open');
-}
+function closePanel() { document.getElementById('overlay').classList.remove('open'); }
 
-document.getElementById('f-image').addEventListener('input', function () {
-  updatePreview(this.value.trim());
-});
+document.getElementById('f-image').addEventListener('input', function () { updatePreview(this.value.trim()); });
 
 function updatePreview(src) {
   var img = document.getElementById('img-preview');
@@ -543,10 +681,7 @@ document.getElementById('btn-save').addEventListener('click', function () {
   var image = document.getElementById('f-image').value.trim();
   var link  = document.getElementById('f-link').value.trim();
 
-  if (!platform || !name || !desc) {
-    alert('Platform, name, and description are all required.');
-    return;
-  }
+  if (!platform || !name || !desc) { alert('Platform, name, and description are required.'); return; }
 
   var proj = { platform: platform, name: name, description: desc, image: image, link: link };
   if (editIndex === -1) { projects.push(proj); } else { projects[editIndex] = proj; }
@@ -568,14 +703,11 @@ document.getElementById('f-image-file').addEventListener('change', async functio
     var base64   = await readFileAsBase64(file);
     var path     = 'screenshots/' + file.name;
     var existing = await getFileSha(path);
-
-    var body = { message: 'Upload screenshot: ' + file.name, content: base64, branch: BRANCH };
+    var body     = { message: 'Upload screenshot: ' + file.name, content: base64, branch: BRANCH };
     if (existing) body.sha = existing;
 
     var res = await fetch(API + '/repos/' + OWNER + '/' + REPO + '/contents/' + path, {
-      method:  'PUT',
-      headers: ghHeaders(),
-      body:    JSON.stringify(body)
+      method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body)
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
 
