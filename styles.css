@@ -273,6 +273,14 @@ section{padding:90px 0;}
 .proj .tagk{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:var(--amber);text-transform:uppercase;}
 .proj h4{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;margin:8px 0 6px;}
 .proj p{font-size:.9rem;color:var(--txt-mut);}
+.proj-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+.proj-links a{
+  font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.06em;
+  color:var(--txt-mut);text-decoration:none;
+  border:1px solid var(--line);border-radius:3px;padding:4px 10px;
+  transition:color .2s,border-color .2s;
+}
+.proj-links a:hover{color:var(--amber);border-color:var(--amber);}
 
 /* contact */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;}

@@ -348,6 +348,14 @@ footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.
       <label for="f-link">Live link (store / website URL)</label>
       <input type="url" id="f-link" placeholder="https://play.google.com/…" />
     </div>
+    <div class="field">
+      <label for="f-privacy">Privacy Policy URL</label>
+      <input type="url" id="f-privacy" placeholder="https://darskeeworks.online/privacy/appname" />
+    </div>
+    <div class="field">
+      <label for="f-support">Support URL</label>
+      <input type="url" id="f-support" placeholder="https://darskeeworks.online/support/appname" />
+    </div>
 
     <div class="panel-footer">
       <button type="button" class="btn btn-primary" id="btn-save">Save project</button>
@@ -497,7 +505,7 @@ document.getElementById('f-platform').addEventListener('change', function () {
 function openEdit(index) {
   editIndex = index;
   document.getElementById('panel-title').textContent = index === -1 ? 'Add project' : 'Edit project';
-  var p = index === -1 ? { platform:'', name:'', description:'', image:'', link:'' } : projects[index];
+  var p = index === -1 ? { platform:'', name:'', description:'', image:'', link:'', privacy:'', support:'' } : projects[index];
 
   var sel = document.getElementById('f-platform');
   if (KNOWN_PLATFORMS.indexOf(p.platform) !== -1) {
@@ -512,10 +520,12 @@ function openEdit(index) {
     document.getElementById('custom-platform-wrap').classList.add('hidden');
   }
 
-  document.getElementById('f-name').value  = p.name        || '';
-  document.getElementById('f-desc').value  = p.description || '';
-  document.getElementById('f-image').value = p.image       || '';
-  document.getElementById('f-link').value  = p.link        || '';
+  document.getElementById('f-name').value    = p.name        || '';
+  document.getElementById('f-desc').value    = p.description || '';
+  document.getElementById('f-image').value   = p.image       || '';
+  document.getElementById('f-link').value    = p.link        || '';
+  document.getElementById('f-privacy').value = p.privacy     || '';
+  document.getElementById('f-support').value = p.support     || '';
   updatePreview(p.image || '');
 
   document.getElementById('overlay').classList.add('open');
@@ -538,14 +548,16 @@ document.getElementById('btn-save').addEventListener('click', function () {
   var platform = selVal === '__custom__'
     ? document.getElementById('f-platform-custom').value.trim()
     : selVal;
-  var name  = document.getElementById('f-name').value.trim();
-  var desc  = document.getElementById('f-desc').value.trim();
-  var image = document.getElementById('f-image').value.trim();
-  var link  = document.getElementById('f-link').value.trim();
+  var name    = document.getElementById('f-name').value.trim();
+  var desc    = document.getElementById('f-desc').value.trim();
+  var image   = document.getElementById('f-image').value.trim();
+  var link    = document.getElementById('f-link').value.trim();
+  var privacy = document.getElementById('f-privacy').value.trim();
+  var support = document.getElementById('f-support').value.trim();
 
   if (!platform || !name || !desc) { alert('Platform, name, and description are required.'); return; }
 
-  var proj = { platform: platform, name: name, description: desc, image: image, link: link };
+  var proj = { platform: platform, name: name, description: desc, image: image, link: link, privacy: privacy, support: support };
   if (editIndex === -1) { projects.push(proj); } else { projects[editIndex] = proj; }
   renderList();
   closePanel();

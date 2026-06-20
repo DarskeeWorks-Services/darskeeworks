@@ -5,21 +5,27 @@
       "name": "Your App Name",
       "description": "One line: what it does and who it's for.",
       "image": "",
-      "link": ""
+      "link": "",
+      "privacy": "",
+      "support": ""
     },
     {
       "platform": "iOS · App Store",
       "name": "Your App Name",
       "description": "One line: what it does and who it's for.",
       "image": "",
-      "link": ""
+      "link": "",
+      "privacy": "",
+      "support": ""
     },
     {
       "platform": "Website",
       "name": "Site Name",
       "description": "One line: the business and what the site helps them do.",
       "image": "",
-      "link": ""
+      "link": "",
+      "privacy": "",
+      "support": ""
     }
   ]
 }
