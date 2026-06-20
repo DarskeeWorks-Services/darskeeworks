@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Admin — DarskeeWorks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink-2:#111827;
+  --panel:#0b1020;
+  --amber:#38bdf8;
+  --amber-bright:#5fd0ff;
+  --copper:#a78bfa;
+  --line:rgba(148,163,184,.18);
+  --txt:#e5e7eb;
+  --txt-mut:#9ca3af;
+  --green:#4ade80;
+  --red:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:#020617;
+  color:var(--txt);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none;}
+
+/* layout */
+.wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+
+/* admin header */
+.adm-header{
+  border-bottom:1px solid var(--line);
+  background:rgba(11,16,32,.96);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  padding:0;
+  position:sticky;top:0;z-index:20;
+}
+.adm-header .inner{
+  max-width:880px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;height:60px;
+}
+.brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:1rem;}
+.brand span{color:var(--amber);}
+.badge{
+  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+  background:var(--copper);color:#0b1120;padding:3px 8px;border-radius:2px;margin-left:10px;
+}
+.back-link{font-size:.85rem;color:var(--txt-mut);transition:color .2s;}
+.back-link:hover{color:var(--txt);}
+
+main{padding:32px 0 60px;}
+
+/* cards */
+.card{
+  background:var(--ink-2);border:1px solid var(--line);border-radius:6px;
+  padding:24px;margin-bottom:20px;
+}
+.card h2{
+  font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:6px;
+}
+.card p{font-size:.87rem;color:var(--txt-mut);margin-bottom:18px;line-height:1.5;}
+.card code{color:var(--amber);font-family:'Space Mono',monospace;font-size:.85em;}
+
+/* token row */
+.token-row{display:flex;gap:10px;flex-wrap:wrap;}
+.input-token{
+  flex:1;min-width:200px;
+  background:var(--panel);border:1px solid var(--line);border-radius:3px;
+  padding:11px 14px;color:var(--txt);font-family:'Space Mono',monospace;font-size:.82rem;
+  letter-spacing:.06em;
+}
+.input-token:focus{outline:none;border-color:var(--amber);}
+
+/* buttons */
+.btn{
+  border:none;border-radius:3px;cursor:pointer;font-weight:600;
+  padding:11px 20px;font-size:.88rem;transition:background .2s,border-color .2s,color .2s,opacity .2s;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--amber);color:#0b1120;font-family:'Archivo',sans-serif;}
+.btn-primary:hover{background:var(--amber-bright);}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;}
+.btn-ghost{background:none;border:1px solid var(--line);color:var(--txt-mut);}
+.btn-ghost:hover{border-color:var(--txt-mut);color:var(--txt);}
+.btn-danger{background:none;border:1px solid var(--line);color:var(--red);}
+.btn-danger:hover{border-color:var(--red);background:rgba(248,113,113,.08);}
+.btn-green{background:var(--green);color:#050816;font-family:'Archivo',sans-serif;}
+.btn-green:hover{background:#22c55e;}
+.btn-green:disabled{opacity:.5;cursor:not-allowed;}
+.btn-sm{padding:7px 14px;font-size:.8rem;}
+
+/* status */
+.status{
+  margin-top:14px;font-family:'Space Mono',monospace;font-size:.75rem;
+  letter-spacing:.05em;padding:10px 14px;border-radius:3px;
+}
+.status-ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);color:var(--green);}
+.status-err{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.22);color:var(--red);}
+.status-info{background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.22);color:var(--amber);}
+
+/* projects panel */
+.projects-panel{display:none;}
+.projects-panel.visible{display:block;}
+.section-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;margin-bottom:18px;
+}
+.section-bar h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;}
+.action-group{display:flex;gap:10px;flex-wrap:wrap;}
+
+/* project list */
+.proj-list{display:grid;gap:10px;}
+.proj-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:5px;
+  padding:15px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  flex-wrap:wrap;
+}
+.proj-item .info .tag{
+  font-family:'Space Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--amber);margin-bottom:3px;
+}
+.proj-item .info .name{font-weight:600;font-size:.95rem;}
+.proj-item .info .desc{font-size:.82rem;color:var(--txt-mut);}
+.proj-item .row-actions{display:flex;gap:8px;flex-shrink:0;}
+
+.empty{
+  text-align:center;padding:40px 20px;
+  border:1px dashed var(--line);border-radius:5px;
+  font-family:'Space Mono',monospace;font-size:.78rem;color:var(--txt-mut);letter-spacing:.06em;
+}
+
+/* overlay */
+.overlay{
+  position:fixed;inset:0;background:rgba(2,6,23,.75);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  z-index:100;display:none;
+  align-items:flex-start;justify-content:center;
+  padding:40px 20px;overflow-y:auto;
+}
+.overlay.open{display:flex;}
+.edit-panel{
+  background:#0b1120;border:1px solid var(--line);border-radius:8px;
+  padding:28px;width:100%;max-width:520px;position:relative;
+}
+.edit-panel h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:22px;}
+.btn-close{
+  position:absolute;top:14px;right:14px;
+  background:none;border:none;color:var(--txt-mut);cursor:pointer;
+  font-size:1rem;padding:4px 8px;border-radius:3px;transition:color .2s,background .2s;
+}
+.btn-close:hover{color:var(--txt);background:var(--ink-2);}
+
+/* form fields */
+.field{display:grid;gap:6px;margin-bottom:16px;}
+.field label{
+  font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--txt-mut);
+}
+.field input,.field textarea,.field select{
+  background:var(--ink-2);border:1px solid var(--line);border-radius:3px;
+  padding:11px 13px;color:var(--txt);font-family:'Inter',sans-serif;font-size:.88rem;width:100%;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  outline:none;border-color:var(--amber);
+}
+.field textarea{min-height:72px;resize:vertical;}
+.field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;}
+.field select option{background:#0b1120;}
+
+.img-row{display:flex;gap:8px;}
+.img-row input{flex:1;}
+.btn-upload-label{
+  display:inline-flex;align-items:center;
+  background:var(--ink-2);border:1px solid var(--line);border-radius:3px;
+  padding:11px 14px;color:var(--txt-mut);font-size:.82rem;cursor:pointer;
+  white-space:nowrap;flex-shrink:0;transition:border-color .2s,color .2s;
+}
+.btn-upload-label:hover{border-color:var(--amber);color:var(--amber);}
+.img-preview{
+  width:100%;aspect-ratio:16/9;object-fit:cover;
+  border-radius:4px;border:1px solid var(--line);
+  background:var(--panel);margin-top:8px;display:none;
+}
+.img-preview.show{display:block;}
+.upload-note{
+  font-family:'Space Mono',monospace;font-size:.7rem;color:var(--amber);
+  letter-spacing:.05em;margin-top:6px;display:none;
+}
+.upload-note.show{display:block;}
+
+.hidden{display:none;}
+
+.panel-footer{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:24px 0;text-align:center;}
+footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.05em;}
+
+@media(max-width:600px){
+  .token-row{flex-direction:column;}
+  .input-token{min-width:0;}
+  .proj-item{flex-direction:column;align-items:flex-start;}
+  .overlay{padding:16px 12px;}
+  .edit-panel{padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<header class="adm-header">
+  <div class="inner">
+    <div>
+      <span class="brand">Darskee<span>Works</span></span>
+      <span class="badge">Admin</span>
+    </div>
+    <a class="back-link" href="index.html">← Back to site</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- GitHub connection -->
+    <div class="card" id="token-card">
+      <h2>GitHub Connection</h2>
+      <p>
+        Paste a GitHub <strong>Personal Access Token</strong> with <code>repo</code> scope.
+        It is stored only in your browser's localStorage and is only ever sent to <code>api.github.com</code>.
+        <br>Create one at: <code>github.com → Settings → Developer settings → Personal access tokens → Fine-grained</code>
+        (needs <em>Contents: Read &amp; write</em> on this repo).
+      </p>
+      <div class="token-row">
+        <input type="password" class="input-token" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" spellcheck="false" />
+        <button type="button" class="btn btn-primary" id="btn-connect">Connect</button>
+        <button type="button" class="btn btn-ghost" id="btn-clear">Clear</button>
+      </div>
+      <div id="conn-status" hidden></div>
+    </div>
+
+    <!-- Projects panel (shown after connect) -->
+    <div class="projects-panel" id="projects-panel">
+
+      <div class="card">
+        <div class="section-bar">
+          <h2>Works &amp; Projects</h2>
+          <div class="action-group">
+            <button type="button" class="btn btn-ghost" id="btn-add">+ Add project</button>
+            <button type="button" class="btn btn-green" id="btn-push">↑ Push to GitHub</button>
+          </div>
+        </div>
+        <div class="proj-list" id="proj-list"></div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <small>DarskeeWorks Admin · Not indexed by search engines</small>
+</footer>
+
+<!-- Edit overlay -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="panel-title">
+  <div class="edit-panel">
+    <button type="button" class="btn-close" id="btn-close" aria-label="Close">✕</button>
+    <h3 id="panel-title">Add project</h3>
+
+    <div class="field">
+      <label for="f-platform">Platform</label>
+      <select id="f-platform">
+        <option value="">— select —</option>
+        <option>Android · Google Play</option>
+        <option>iOS · App Store</option>
+        <option>Website</option>
+        <option>Full-stack app</option>
+        <option value="__custom__">Other (type below)</option>
+      </select>
+    </div>
+    <div class="field hidden" id="custom-platform-wrap">
+      <label for="f-platform-custom">Custom platform label</label>
+      <input type="text" id="f-platform-custom" placeholder="e.g. Chrome Extension" />
+    </div>
+
+    <div class="field">
+      <label for="f-name">Project name</label>
+      <input type="text" id="f-name" placeholder="My App" />
+    </div>
+    <div class="field">
+      <label for="f-desc">Description (one line)</label>
+      <textarea id="f-desc" placeholder="What it does and who it's for."></textarea>
+    </div>
+    <div class="field">
+      <label>Screenshot / image</label>
+      <div class="img-row">
+        <input type="text" id="f-image" placeholder="URL or screenshots/filename.png" />
+        <label class="btn-upload-label" title="Upload image to repo">
+          ↑ Upload
+          <input type="file" id="f-image-file" accept="image/*" hidden />
+        </label>
+      </div>
+      <div class="upload-note" id="upload-note"></div>
+      <img class="img-preview" id="img-preview" alt="Preview" />
+    </div>
+    <div class="field">
+      <label for="f-link">Live link (store / website URL)</label>
+      <input type="url" id="f-link" placeholder="https://play.google.com/…" />
+    </div>
+
+    <div class="panel-footer">
+      <button type="button" class="btn btn-primary" id="btn-save">Save project</button>
+      <button type="button" class="btn btn-ghost" id="btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+// ── config ────────────────────────────────────────────────────────────────────
+var OWNER  = 'DarskeeWorks-Services';
+var REPO   = 'darskeeworks';
+var BRANCH = 'main';
+var FILE   = 'works.json';
+var API    = 'https://api.github.com';
+
+// ── state ─────────────────────────────────────────────────────────────────────
+var projects  = [];
+var fileSha   = '';
+var editIndex = -1;
+
+// ── helpers ───────────────────────────────────────────────────────────────────
+function getToken() {
+  return document.getElementById('token-input').value.trim();
+}
+
+function ghHeaders() {
+  return {
+    Authorization: 'token ' + getToken(),
+    'Content-Type': 'application/json',
+    Accept: 'application/vnd.github+json'
+  };
+}
+
+function showStatus(id, msg, type) {
+  var el = document.getElementById(id);
+  el.removeAttribute('hidden');
+  el.textContent = msg;
+  el.className = 'status status-' + type;
+}
+
+function hideStatus(id) {
+  var el = document.getElementById(id);
+  el.setAttribute('hidden', '');
+  el.className = 'status';
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function b64Encode(str) {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
+function b64Decode(str) {
+  return decodeURIComponent(escape(atob(str.replace(/\s/g, ''))));
+}
+
+// ── restore saved token on load ───────────────────────────────────────────────
+(function () {
+  var saved = localStorage.getItem('dw_admin_token');
+  if (saved) document.getElementById('token-input').value = saved;
+})();
+
+// ── connect ───────────────────────────────────────────────────────────────────
+document.getElementById('btn-connect').addEventListener('click', connectGitHub);
+document.getElementById('token-input').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') connectGitHub();
+});
+
+async function connectGitHub() {
+  var t = getToken();
+  if (!t) { showStatus('conn-status', 'Paste a GitHub token first.', 'err'); return; }
+  showStatus('conn-status', 'Connecting…', 'info');
+  try {
+    var res  = await fetch(API + '/repos/' + OWNER + '/' + REPO + '/contents/' + FILE, { headers: ghHeaders() });
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' — check token scope and repo name');
+    var data = await res.json();
+    fileSha  = data.sha;
+    projects = JSON.parse(b64Decode(data.content)).projects || [];
+    localStorage.setItem('dw_admin_token', t);
+    showStatus('conn-status', '✓ Connected · ' + OWNER + '/' + REPO + ' · ' + projects.length + ' project(s) loaded', 'ok');
+    document.getElementById('projects-panel').classList.add('visible');
+    renderList();
+  } catch (err) {
+    showStatus('conn-status', 'Connection failed: ' + err.message, 'err');
+  }
+}
+
+document.getElementById('btn-clear').addEventListener('click', function () {
+  document.getElementById('token-input').value = '';
+  localStorage.removeItem('dw_admin_token');
+  document.getElementById('projects-panel').classList.remove('visible');
+  hideStatus('conn-status');
+});
+
+// ── render list ───────────────────────────────────────────────────────────────
+function renderList() {
+  var list = document.getElementById('proj-list');
+  if (!projects.length) {
+    list.innerHTML = '<div class="empty">No projects yet — click "+ Add project" to get started.</div>';
+    return;
+  }
+  list.innerHTML = projects.map(function (p, i) {
+    return '<div class="proj-item">'
+      + '<div class="info">'
+      + '<div class="tag">' + esc(p.platform) + '</div>'
+      + '<div class="name">' + esc(p.name) + '</div>'
+      + '<div class="desc">' + esc(p.description) + '</div>'
+      + '</div>'
+      + '<div class="row-actions">'
+      + '<button type="button" class="btn btn-ghost btn-sm" onclick="openEdit(' + i + ')">Edit</button>'
+      + '<button type="button" class="btn btn-danger btn-sm" onclick="removeProject(' + i + ')">Delete</button>'
+      + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+// ── delete ────────────────────────────────────────────────────────────────────
+function removeProject(i) {
+  if (!confirm('Delete "' + projects[i].name + '"? (This only removes it locally until you push.)')) return;
+  projects.splice(i, 1);
+  renderList();
+}
+
+// ── push to github ────────────────────────────────────────────────────────────
+document.getElementById('btn-push').addEventListener('click', pushToGitHub);
+
+async function pushToGitHub() {
+  if (!getToken()) { showStatus('conn-status', 'Connect to GitHub first.', 'err'); return; }
+  var btn = document.getElementById('btn-push');
+  btn.disabled = true;
+  btn.textContent = 'Pushing…';
+  showStatus('conn-status', 'Pushing to GitHub…', 'info');
+  try {
+    var json = JSON.stringify({ projects: projects }, null, 2);
+    var res  = await fetch(API + '/repos/' + OWNER + '/' + REPO + '/contents/' + FILE, {
+      method:  'PUT',
+      headers: ghHeaders(),
+      body:    JSON.stringify({ message: 'Update works.json via admin panel', content: b64Encode(json), sha: fileSha, branch: BRANCH })
+    });
+    if (!res.ok) {
+      var errBody = await res.json().catch(function () { return {}; });
+      throw new Error('HTTP ' + res.status + (errBody.message ? ' — ' + errBody.message : ''));
+    }
+    var result = await res.json();
+    fileSha = result.content.sha;
+    showStatus('conn-status', '✓ Pushed! Commit ' + result.commit.sha.slice(0, 7) + ' · ' + projects.length + ' project(s)', 'ok');
+  } catch (err) {
+    showStatus('conn-status', 'Push failed: ' + err.message, 'err');
+  }
+  btn.disabled = false;
+  btn.textContent = '↑ Push to GitHub';
+}
+
+// ── edit overlay ──────────────────────────────────────────────────────────────
+var KNOWN_PLATFORMS = ['Android · Google Play', 'iOS · App Store', 'Website', 'Full-stack app'];
+
+document.getElementById('btn-add').addEventListener('click', function () { openEdit(-1); });
+document.getElementById('btn-close').addEventListener('click', closePanel);
+document.getElementById('btn-cancel').addEventListener('click', closePanel);
+document.getElementById('overlay').addEventListener('click', function (e) { if (e.target === this) closePanel(); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePanel(); });
+
+document.getElementById('f-platform').addEventListener('change', function () {
+  document.getElementById('custom-platform-wrap').classList.toggle('hidden', this.value !== '__custom__');
+});
+
+function openEdit(index) {
+  editIndex = index;
+  document.getElementById('panel-title').textContent = index === -1 ? 'Add project' : 'Edit project';
+
+  var p = index === -1 ? { platform:'', name:'', description:'', image:'', link:'' } : projects[index];
+
+  var sel = document.getElementById('f-platform');
+  if (KNOWN_PLATFORMS.indexOf(p.platform) !== -1) {
+    sel.value = p.platform;
+    document.getElementById('custom-platform-wrap').classList.add('hidden');
+  } else if (p.platform) {
+    sel.value = '__custom__';
+    document.getElementById('f-platform-custom').value = p.platform;
+    document.getElementById('custom-platform-wrap').classList.remove('hidden');
+  } else {
+    sel.value = '';
+    document.getElementById('custom-platform-wrap').classList.add('hidden');
+  }
+
+  document.getElementById('f-name').value        = p.name        || '';
+  document.getElementById('f-desc').value        = p.description || '';
+  document.getElementById('f-image').value       = p.image       || '';
+  document.getElementById('f-link').value        = p.link        || '';
+  document.getElementById('upload-note').classList.remove('show');
+  updatePreview(p.image || '');
+
+  document.getElementById('overlay').classList.add('open');
+  setTimeout(function () { document.getElementById('f-name').focus(); }, 60);
+}
+
+function closePanel() {
+  document.getElementById('overlay').classList.remove('open');
+}
+
+document.getElementById('f-image').addEventListener('input', function () {
+  updatePreview(this.value.trim());
+});
+
+function updatePreview(src) {
+  var img = document.getElementById('img-preview');
+  img.src = src || '';
+  img.classList.toggle('show', !!src);
+}
+
+// ── save project ──────────────────────────────────────────────────────────────
+document.getElementById('btn-save').addEventListener('click', function () {
+  var selVal   = document.getElementById('f-platform').value;
+  var platform = selVal === '__custom__'
+    ? document.getElementById('f-platform-custom').value.trim()
+    : selVal;
+  var name  = document.getElementById('f-name').value.trim();
+  var desc  = document.getElementById('f-desc').value.trim();
+  var image = document.getElementById('f-image').value.trim();
+  var link  = document.getElementById('f-link').value.trim();
+
+  if (!platform || !name || !desc) {
+    alert('Platform, name, and description are all required.');
+    return;
+  }
+
+  var proj = { platform: platform, name: name, description: desc, image: image, link: link };
+  if (editIndex === -1) { projects.push(proj); } else { projects[editIndex] = proj; }
+  renderList();
+  closePanel();
+});
+
+// ── image upload to repo ──────────────────────────────────────────────────────
+document.getElementById('f-image-file').addEventListener('change', async function () {
+  var file = this.files[0];
+  if (!file) return;
+  if (!getToken()) { alert('Connect to GitHub first.'); this.value = ''; return; }
+
+  var note = document.getElementById('upload-note');
+  note.textContent = 'Uploading ' + file.name + '…';
+  note.classList.add('show');
+
+  try {
+    var base64   = await readFileAsBase64(file);
+    var path     = 'screenshots/' + file.name;
+    var existing = await getFileSha(path);
+
+    var body = { message: 'Upload screenshot: ' + file.name, content: base64, branch: BRANCH };
+    if (existing) body.sha = existing;
+
+    var res = await fetch(API + '/repos/' + OWNER + '/' + REPO + '/contents/' + path, {
+      method:  'PUT',
+      headers: ghHeaders(),
+      body:    JSON.stringify(body)
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+
+    document.getElementById('f-image').value = path;
+    updatePreview(path);
+    note.textContent = '✓ Uploaded → ' + path;
+  } catch (err) {
+    note.textContent = '✕ Upload failed: ' + err.message;
+  }
+  this.value = '';
+});
+
+function readFileAsBase64(file) {
+  return new Promise(function (resolve, reject) {
+    var reader = new FileReader();
+    reader.onload  = function (e) { resolve(e.target.result.split(',')[1]); };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function getFileSha(path) {
+  try {
+    var res = await fetch(API + '/repos/' + OWNER + '/' + REPO + '/contents/' + path, { headers: ghHeaders() });
+    if (!res.ok) return null;
+    var d = await res.json();
+    return d.sha || null;
+  } catch (e) { return null; }
+}
+</script>
+</body>
+</html>

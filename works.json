@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "platform": "Android · Google Play",
+      "name": "Your App Name",
+      "description": "One line: what it does and who it's for.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "platform": "iOS · App Store",
+      "name": "Your App Name",
+      "description": "One line: what it does and who it's for.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "platform": "Website",
+      "name": "Site Name",
+      "description": "One line: the business and what the site helps them do.",
+      "image": "",
+      "link": ""
+    }
+  ]
+}
