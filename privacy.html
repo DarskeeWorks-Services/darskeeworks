@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — DarskeeWorks</title>
+<meta name="description" content="Privacy policies for all DarskeeWorks apps and websites." />
+<link rel="icon" type="image/png" href="icon.png" />
+<link rel="apple-touch-icon" href="icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .privacy-wrap { max-width: 760px; margin: 0 auto; padding: 6rem 1.5rem 4rem; }
+  .privacy-wrap h1 { font-family: 'Archivo', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: .4rem; }
+  .privacy-wrap .updated { font-family: 'Space Mono', monospace; font-size: .78rem; opacity: .5; margin-bottom: 2.5rem; }
+  .privacy-wrap h2 { font-family: 'Archivo', sans-serif; font-size: 1.2rem; margin: 2.5rem 0 .6rem; }
+  .privacy-wrap h3 { font-family: 'Archivo', sans-serif; font-size: 1rem; margin: 1.8rem 0 .4rem; opacity: .85; }
+  .privacy-wrap p, .privacy-wrap li { font-family: 'Inter', sans-serif; font-size: .95rem; line-height: 1.75; opacity: .8; }
+  .privacy-wrap ul { padding-left: 1.4rem; margin: .4rem 0 1rem; }
+  .privacy-wrap a { color: inherit; text-decoration: underline; }
+  .privacy-wrap hr { border: none; border-top: 1px solid rgba(255,255,255,.1); margin: 3rem 0; }
+  .privacy-wrap .app-section { padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .privacy-wrap .app-section:last-child { border-bottom: none; }
+  .privacy-wrap .platform-tag { display: inline-block; font-family: 'Space Mono', monospace; font-size: .7rem; letter-spacing: .05em; opacity: .55; margin-bottom: .5rem; }
+  .back-link { display: inline-flex; align-items: center; gap: .4rem; font-family: 'Space Mono', monospace; font-size: .78rem; opacity: .55; text-decoration: none; margin-bottom: 2rem; transition: opacity .2s; }
+  .back-link:hover { opacity: 1; }
+  #loading { text-align: center; padding: 4rem; font-family: 'Space Mono', monospace; font-size: .85rem; opacity: .4; }
+</style>
+</head>
+<body>
+<div class="privacy-wrap">
+  <a href="index.html" class="back-link">← Back to DarskeeWorks</a>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 21, 2026</p>
+
+  <p>This page covers the privacy policies for all apps and websites developed by <strong>DarskeeWorks</strong> (Daril Quervo). Each section below applies to the specific product listed. By using any DarskeeWorks product, you agree to the practices described in the relevant section.</p>
+
+  <h2>General Principles</h2>
+  <p>DarskeeWorks is committed to protecting your privacy. Across all products:</p>
+  <ul>
+    <li>We collect only the minimum data needed to provide the service.</li>
+    <li>We do not sell your personal data to third parties.</li>
+    <li>We do not use your data for advertising or profiling.</li>
+    <li>You may request deletion of your data at any time by contacting us.</li>
+  </ul>
+  <p>For questions about any product, contact: <a href="mailto:darilquervo.dev@gmail.com">darilquervo.dev@gmail.com</a></p>
+
+  <hr />
+
+  <div id="loading">Loading app policies…</div>
+  <div id="app-policies"></div>
+</div>
+
+<script>
+  function slugify(str) {
+    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  function dataDisclosure(p) {
+    const platform = p.platform || '';
+    const name = p.name || '';
+    const isPlay   = platform.includes('Google Play');
+    const isApple  = platform.includes('App Store');
+    const isWeb    = platform.includes('Website');
+    const supportEmail = 'darilquervo.dev@gmail.com';
+
+    let collected = [];
+    let purpose   = [];
+    let shared    = [];
+
+    const lowerName = name.toLowerCase();
+    const lowerDesc = (p.description || '').toLowerCase();
+
+    if (lowerDesc.includes('budget') || lowerDesc.includes('expense') || lowerDesc.includes('income') || lowerDesc.includes('savings') || lowerDesc.includes('loan') || lowerDesc.includes('financial')) {
+      collected.push('Financial entries you input manually (income, expenses, budgets, loans)');
+      purpose.push('Storing and displaying your personal financial records within the app');
+    }
+    if (lowerDesc.includes('solar') || lowerDesc.includes('calc') || lowerDesc.includes('design')) {
+      collected.push('Input values you enter for calculations (system size, consumption, location parameters)');
+      purpose.push('Performing solar PV calculations and generating reports');
+    }
+    if (lowerDesc.includes('inventory') || lowerDesc.includes('sales') || lowerDesc.includes('pos') || lowerDesc.includes('barcode') || lowerDesc.includes('retail')) {
+      collected.push('Sales records, inventory items, and product data you enter');
+      purpose.push('Managing your business inventory and sales tracking');
+    }
+    if (lowerDesc.includes('vocabulary') || lowerDesc.includes('grammar') || lowerDesc.includes('kanji') || lowerDesc.includes('jlpt') || lowerDesc.includes('practice')) {
+      collected.push('Quiz results and study progress stored locally on your device');
+      purpose.push('Tracking your learning progress and displaying personalized study sessions');
+    }
+    if (lowerDesc.includes('karaoke') || lowerDesc.includes('sing')) {
+      collected.push('Song search queries and session usage data');
+      purpose.push('Serving karaoke content and improving search results');
+    }
+    if (lowerDesc.includes('virtual assistant') || lowerDesc.includes('assistance') || lowerDesc.includes('support') && isWeb) {
+      collected.push('Messages and queries you submit through the assistant interface');
+      purpose.push('Responding to your requests and improving assistant accuracy');
+    }
+    if (lowerDesc.includes('portfolio') || lowerName.includes('portfolio')) {
+      collected.push('Contact form submissions (name, email, message) if you use the contact form');
+      purpose.push('Responding to your enquiry');
+    }
+
+    if (collected.length === 0) {
+      collected.push('No personal data is collected beyond what you voluntarily provide');
+    }
+
+    shared.push('We do not sell, trade, or share your personal data with third parties');
+    if (isPlay || isApple) {
+      shared.push('Crash reports and diagnostic data may be shared with Google Play / Apple App Store via their built-in analytics (subject to their own privacy policies)');
+    }
+
+    let sections = '';
+
+    sections += '<h3>Data We Collect</h3><ul>' + collected.map(function(c){ return '<li>' + c + '</li>'; }).join('') + '</ul>';
+    if (purpose.length) {
+      sections += '<h3>How We Use It</h3><ul>' + purpose.map(function(c){ return '<li>' + c + '</li>'; }).join('') + '</ul>';
+    }
+    sections += '<h3>Data Sharing</h3><ul>' + shared.map(function(c){ return '<li>' + c + '</li>'; }).join('') + '</ul>';
+
+    if (isPlay || isApple) {
+      sections += '<h3>Data Storage & Retention</h3><p>All data you enter is stored locally on your device unless a cloud sync feature is explicitly used. Data is retained until you uninstall the app or delete it manually. You may request deletion of any cloud-stored data by contacting us.</p>';
+      sections += '<h3>Your Rights</h3><ul>'
+        + '<li>Access: request a copy of data we hold about you</li>'
+        + '<li>Deletion: request deletion of your data at any time</li>'
+        + '<li>Correction: request correction of inaccurate data</li>'
+        + '</ul>';
+    }
+
+    if (isWeb) {
+      sections += '<h3>Cookies & Analytics</h3><p>This web app may use cookies or similar technologies to maintain your session. No third-party advertising cookies are used.</p>';
+    }
+
+    sections += '<h3>Contact</h3><p>For privacy-related requests regarding <em>' + name + '</em>, email: <a href="mailto:' + supportEmail + '?subject=' + encodeURIComponent('Privacy: ' + name) + '">' + supportEmail + '</a></p>';
+
+    return sections;
+  }
+
+  function renderPolicies(data) {
+    document.getElementById('loading').style.display = 'none';
+    const container = document.getElementById('app-policies');
+
+    container.innerHTML = data.projects.map(function(p) {
+      const slug = slugify(p.name);
+      const storeLink = p.link ? '<a href="' + p.link + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name;
+      return '<div class="app-section" id="' + slug + '">'
+        + '<span class="platform-tag">' + p.platform + '</span>'
+        + '<h2>' + storeLink + '</h2>'
+        + '<p>' + p.description + '</p>'
+        + dataDisclosure(p)
+        + '</div>';
+    }).join('');
+
+    // Scroll to anchor if present in URL
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  fetch('works.json')
+    .then(function(r) { return r.json(); })
+    .then(renderPolicies)
+    .catch(function() {
+      document.getElementById('loading').textContent = 'Could not load app data.';
+    });
+</script>
+</body>
+</html>

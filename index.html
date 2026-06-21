@@ -280,18 +280,32 @@
   });
 
   // --- Project cards from works.json ---
+  function slugify(str) {
+    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  function autoPrivacy(p) {
+    if (p.privacy) return p.privacy;
+    return 'privacy.html#' + slugify(p.name);
+  }
+
+  function autoSupport(p) {
+    if (p.support) return p.support;
+    return 'mailto:darilquervo.dev@gmail.com?subject=' + encodeURIComponent('Support: ' + p.name);
+  }
+
   function renderProjects(data) {
     const grid = document.getElementById('proj-grid');
     grid.innerHTML = data.projects.map(function (p) {
       const thumb = p.image
         ? '<div class="thumb"><img src="' + p.image + '" alt="' + p.name + '" /></div>'
         : '<div class="thumb">[ screenshot ]<br>' + p.name + '</div>';
-      const links = (p.privacy || p.support)
-        ? '<div class="proj-links">'
-          + (p.privacy ? '<a href="' + p.privacy + '" target="_blank" rel="noopener">Privacy Policy</a>' : '')
-          + (p.support ? '<a href="' + p.support  + '" target="_blank" rel="noopener">Support</a>'        : '')
-          + '</div>'
-        : '';
+      const privacyUrl = autoPrivacy(p);
+      const supportUrl = autoSupport(p);
+      const links = '<div class="proj-links">'
+        + '<a href="' + privacyUrl + '" target="_blank" rel="noopener">Privacy Policy</a>'
+        + '<a href="' + supportUrl + '" target="_blank" rel="noopener">Support</a>'
+        + '</div>';
       const body = '<div class="body"><div class="tagk">' + p.platform + '</div><h4>' + p.name + '</h4><p>' + p.description + '</p>' + links + '</div>';
       const inner = thumb + body;
       return p.link
