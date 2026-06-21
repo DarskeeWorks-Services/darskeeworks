@@ -2,28 +2,64 @@
   "projects": [
     {
       "platform": "Android · Google Play",
-      "name": "Your App Name",
-      "description": "One line: what it does and who it's for.",
-      "image": "",
-      "link": "",
+      "name": "Solar PV Calc - Solar Designer",
+      "description": "Calculates and designs your solar needs",
+      "image": "assets/solar-app.png",
+      "link": "https://play.google.com/store/apps/details?id=com.darskee.solarcalc",
+      "privacy": "",
+      "support": ""
+    },
+    {
+      "platform": "Android · Google Play",
+      "name": "Budget Tracker by Darskee",
+      "description": "Track expenses, manage income & loans, achieve savings goals. Multi-currency!",
+      "image": "assets/budget-tracker-app.png",
+      "link": "https://play.google.com/store/apps/details?id=com.darskee.personalbudgettracker",
+      "privacy": "",
+      "support": ""
+    },
+    {
+      "platform": "Android · Google Play",
+      "name": "Darskee Pass Jlpt N4",
+      "description": "Master JLPT N4 with vocabulary, grammar, kanji, and practice tests!",
+      "image": "assets/jlpt-n4-app.png",
+      "link": "https://play.google.com/store/apps/details?id=com.darskeeworks.passjlptn4",
+      "privacy": "",
+      "support": ""
+    },
+    {
+      "platform": "Android · Google Play",
+      "name": "Darskee-Sales & Inventory App",
+      "description": "Smart POS for retail: track sales, inventory, barcode, and profit offline.",
+      "image": "assets/inventory-app.png",
+      "link": "https://play.google.com/store/apps/details?id=com.darskeeworks.darskee",
       "privacy": "",
       "support": ""
     },
     {
       "platform": "iOS · App Store",
-      "name": "Your App Name",
-      "description": "One line: what it does and who it's for.",
-      "image": "",
-      "link": "",
+      "name": "Moofy - Your Budget Buddy",
+      "description": "Moofy is an app that helps you to budget your money.",
+      "image": "assets/moofy-app.png",
+      "link": "https://apps.apple.com/jp/app/moofy-personal-budget-buddy/id6764759098",
       "privacy": "",
       "support": ""
     },
     {
       "platform": "Website",
-      "name": "Site Name",
-      "description": "One line: the business and what the site helps them do.",
-      "image": "",
-      "link": "",
+      "name": "DarsKaraoke - Sing Your Heart Out",
+      "description": "DarsKaraoke is a web app for singing karaoke songs with your friends.",
+      "image": "assets/darskaraoke.png",
+      "link": "https://darskaraoke.up.railway.app",
+      "privacy": "",
+      "support": ""
+    },
+    {
+      "platform": "Website",
+      "name": "Daril Quervo Portfolio",
+      "description": "Daril Quervo is a web designer and developer. This is his portfolio website.",
+      "image": "assets/website.png",
+      "link": "https://darilquervo.com",
       "privacy": "",
       "support": ""
     }
