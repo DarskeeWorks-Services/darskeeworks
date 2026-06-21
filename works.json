@@ -56,6 +56,15 @@
     },
     {
       "platform": "Website",
+      "name": "GuroAssist PH - Your Virtual Assistant",
+      "description": "GuroAssist PH is a web app for providing virtual assistance and support.",
+      "image": "assets/guroassistph.png",
+      "link": "https://guroassistph.site/",
+      "privacy": "",
+      "support": ""
+    },
+    {
+      "platform": "Website",
       "name": "Daril Quervo Portfolio",
       "description": "Daril Quervo is a web designer and developer. This is his portfolio website.",
       "image": "assets/website.png",
