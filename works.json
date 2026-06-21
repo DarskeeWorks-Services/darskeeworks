@@ -6,8 +6,8 @@
       "description": "Calculates and designs your solar needs",
       "image": "assets/solar-app.png",
       "link": "https://play.google.com/store/apps/details?id=com.darskee.solarcalc",
-      "privacy": "",
-      "support": ""
+      "privacy": "https://darilquervo.com/privacy.html#solar-pv-calc-solar-designer",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Solar%20PV%20Calc%20-%20Solar%20Designer"
     },
     {
       "platform": "Android · Google Play",
@@ -15,8 +15,8 @@
       "description": "Track expenses, manage income & loans, achieve savings goals. Multi-currency!",
       "image": "assets/budget-tracker-app.png",
       "link": "https://play.google.com/store/apps/details?id=com.darskee.personalbudgettracker",
-      "privacy": "",
-      "support": ""
+      "privacy": "https://darilquervo.com/privacy.html#budget-tracker-by-darskee",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Budget%20Tracker%20by%20Darskee"
     },
     {
       "platform": "Android · Google Play",
@@ -24,8 +24,8 @@
       "description": "Master JLPT N4 with vocabulary, grammar, kanji, and practice tests!",
       "image": "assets/n4-app.png",
       "link": "https://play.google.com/store/apps/details?id=com.darskeeworks.passjlptn4",
-      "privacy": "",
-      "support": ""
+      "privacy": "https://darilquervo.com/privacy.html#darskee-pass-jlpt-n4",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Pass%20JLPT%20N4"
     },
     {
       "platform": "Android · Google Play",
@@ -33,8 +33,8 @@
       "description": "Smart POS for retail: track sales, inventory, barcode, and profit offline.",
       "image": "assets/inventory-app.png",
       "link": "https://play.google.com/store/apps/details?id=com.darskeeworks.darskee",
-      "privacy": "",
-      "support": ""
+      "privacy": "https://darilquervo.com/privacy.html#darskee-sales-inventory-app",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Sales%20%26%20Inventory%20App"
     },
     {
       "platform": "iOS · App Store",
@@ -42,8 +42,8 @@
       "description": "Moofy is an app that helps you to budget your money.",
       "image": "assets/moofy-app.png",
       "link": "https://apps.apple.com/jp/app/moofy-personal-budget-buddy/id6764759098",
-      "privacy": "",
-      "support": ""
+      "privacy": "https://darilquervo.com/privacy.html#moofy-your-budget-buddy",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Moofy%20-%20Your%20Budget%20Buddy"
     },
     {
       "platform": "Website",
@@ -51,8 +51,8 @@
       "description": "DarsKaraoke is a web app for singing karaoke songs with your friends.",
       "image": "assets/darskaraoke.png",
       "link": "https://darskaraoke.up.railway.app",
-      "privacy": "",
-      "support": ""
+      "privacy": "https://darilquervo.com/privacy.html#darskaraoke-sing-your-heart-out",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20DarsKaraoke"
     },
     {
       "platform": "Website",
@@ -60,8 +60,8 @@
       "description": "GuroAssist PH is a web app for providing virtual assistance and support.",
       "image": "assets/guroassistph.png",
       "link": "https://guroassistph.site/",
-      "privacy": "",
-      "support": ""
+      "privacy": "https://darilquervo.com/privacy.html#guroassist-ph-your-virtual-assistant",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20GuroAssist%20PH"
     },
     {
       "platform": "Website",
@@ -69,8 +69,8 @@
       "description": "Daril Quervo is a web designer and developer. This is his portfolio website.",
       "image": "assets/website.png",
       "link": "https://darilquervo.com",
-      "privacy": "",
-      "support": ""
+      "privacy": "https://darilquervo.com/privacy.html#daril-quervo-portfolio",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Daril%20Quervo%20Portfolio"
     }
   ]
 }
