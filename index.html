@@ -297,20 +297,23 @@
   function renderProjects(data) {
     const grid = document.getElementById('proj-grid');
     grid.innerHTML = data.projects.map(function (p) {
-      const thumb = p.image
-        ? '<div class="thumb"><img src="' + p.image + '" alt="' + p.name + '" /></div>'
-        : '<div class="thumb">[ screenshot ]<br>' + p.name + '</div>';
+      const thumbContent = p.image
+        ? '<img src="' + p.image + '" alt="' + p.name + '" />'
+        : '[ screenshot ]<br>' + p.name;
+      const thumb = p.link
+        ? '<a class="thumb" href="' + p.link + '" target="_blank" rel="noopener">' + thumbContent + '</a>'
+        : '<div class="thumb">' + thumbContent + '</div>';
+      const title = p.link
+        ? '<h4><a href="' + p.link + '" target="_blank" rel="noopener">' + p.name + '</a></h4>'
+        : '<h4>' + p.name + '</h4>';
       const privacyUrl = autoPrivacy(p);
       const supportUrl = autoSupport(p);
       const links = '<div class="proj-links">'
         + '<a href="' + privacyUrl + '" target="_blank" rel="noopener">Privacy Policy</a>'
         + '<a href="' + supportUrl + '" target="_blank" rel="noopener">Support</a>'
         + '</div>';
-      const body = '<div class="body"><div class="tagk">' + p.platform + '</div><h4>' + p.name + '</h4><p>' + p.description + '</p>' + links + '</div>';
-      const inner = thumb + body;
-      return p.link
-        ? '<a class="proj" href="' + p.link + '" target="_blank" rel="noopener">' + inner + '</a>'
-        : '<article class="proj">' + inner + '</article>';
+      const body = '<div class="body"><div class="tagk">' + p.platform + '</div>' + title + '<p>' + p.description + '</p>' + links + '</div>';
+      return '<article class="proj">' + thumb + body + '</article>';
     }).join('');
   }
 
