@@ -76,8 +76,8 @@
       "platform": "Desktop Software",
       "name": "Darskee Automation",
       "description": "AI-powered automation tool: generates viral scripts, AI images, voiceovers, captions, and renders complete videos ready for Facebook Reels, TikTok, and YouTube Shorts.",
-      "image": "",
-      "link": "",
+      "image": "assets/darskee-automation.png",
+      "link": "https://darskee-automation-site-production.up.railway.app/",
       "privacy": "https://darskeeworks.online/privacy-darskee-automation.html",
       "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Automation"
     }
