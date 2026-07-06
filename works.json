@@ -46,6 +46,15 @@
       "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Moofy%20-%20Your%20Budget%20Buddy"
     },
     {
+      "platform": "iOS · App Store",
+      "name": "Mochi Sensei – JLPT Study Master",
+      "description": "Master Japanese and conquer the JLPT with Mochi Sensei — your AI-powered Japanese study companion!",
+      "image": "assets/mochi-sensei.png",
+      "link": "",
+      "privacy": "https://darskeeworks.online/privacy-mochisensei.html",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Mochi Sensei%20-%20JLPT%20Study%20Master"
+    },
+    {
       "platform": "Website",
       "name": "DarsKaraoke - Sing Your Heart Out",
       "description": "DarsKaraoke is a web app for singing karaoke songs with your friends.",
