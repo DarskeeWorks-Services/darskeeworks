@@ -7,7 +7,8 @@
       "image": "assets/solar-app.png",
       "link": "https://play.google.com/store/apps/details?id=com.darskee.solarcalc",
       "privacy": "https://darskeeworks.online/privacy-solar-pv-calc.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Solar%20PV%20Calc%20-%20Solar%20Designer"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Solar%20PV%20Calc%20-%20Solar%20Designer",
+      "marketing": ""
     },
     {
       "platform": "Android · Google Play",
@@ -16,7 +17,8 @@
       "image": "assets/budget-tracker-app.png",
       "link": "https://play.google.com/store/apps/details?id=com.darskee.personalbudgettracker",
       "privacy": "https://darskeeworks.online/privacy-budget-tracker.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Budget%20Tracker%20by%20Darskee"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Budget%20Tracker%20by%20Darskee",
+      "marketing": ""
     },
     {
       "platform": "Android · Google Play",
@@ -25,7 +27,8 @@
       "image": "assets/n4-app.png",
       "link": "https://play.google.com/store/apps/details?id=com.darskeeworks.passjlptn4",
       "privacy": "https://darskeeworks.online/privacy-darskee-pass-n4.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Pass%20JLPT%20N4"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Pass%20JLPT%20N4",
+      "marketing": ""
     },
     {
       "platform": "Android · Google Play",
@@ -34,7 +37,8 @@
       "image": "assets/inventory-app.png",
       "link": "https://play.google.com/store/apps/details?id=com.darskeeworks.darskee",
       "privacy": "https://darskeeworks.online/privacy-sales-inventory.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Sales%20%26%20Inventory%20App"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Sales%20%26%20Inventory%20App",
+      "marketing": ""
     },
     {
       "platform": "iOS · App Store",
@@ -43,7 +47,8 @@
       "image": "assets/moofy-app.png",
       "link": "https://apps.apple.com/jp/app/moofy-personal-budget-buddy/id6764759098",
       "privacy": "https://darskeeworks.online/privacy-moofy.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Moofy%20-%20Your%20Budget%20Buddy"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Moofy%20-%20Your%20Budget%20Buddy",
+      "marketing": ""
     },
     {
       "platform": "iOS · App Store",
@@ -61,7 +66,8 @@
       "image": "assets/darskaraoke.png",
       "link": "https://darskaraoke.up.railway.app",
       "privacy": "https://darskeeworks.online/privacy-darskaraoke.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20DarsKaraoke"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20DarsKaraoke",
+      "marketing": ""
     },
     {
       "platform": "Website",
@@ -70,7 +76,8 @@
       "image": "assets/guroassistph.png",
       "link": "https://guroassistph.site/",
       "privacy": "https://darskeeworks.online/privacy-guroassist-ph.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20GuroAssist%20PH"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20GuroAssist%20PH",
+      "marketing": ""
     },
     {
       "platform": "Website",
@@ -79,7 +86,8 @@
       "image": "assets/website.png",
       "link": "https://darilquervo.com",
       "privacy": "https://darskeeworks.online/privacy-portfolio.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Daril%20Quervo%20Portfolio"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Daril%20Quervo%20Portfolio",
+      "marketing": ""
     },
     {
       "platform": "Desktop Software",
@@ -88,7 +96,8 @@
       "image": "assets/darskee-automation.png",
       "link": "https://darskee-automation-site-production.up.railway.app/",
       "privacy": "https://darskeeworks.online/privacy-darskee-automation.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Automation"
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Automation",
+      "marketing": ""
     }
   ]
 }

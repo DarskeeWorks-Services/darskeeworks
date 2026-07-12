@@ -361,9 +361,13 @@
         : '<h4>' + p.name + '</h4>';
       const privacyUrl = autoPrivacy(p);
       const supportUrl = autoSupport(p);
+      const marketingLink = p.marketing
+        ? '<a href="' + p.marketing + '" target="_blank" rel="noopener">Marketing</a>'
+        : '';
       const links = '<div class="proj-links">'
         + '<a href="' + privacyUrl + '" target="_blank" rel="noopener">Privacy Policy</a>'
         + '<a href="' + supportUrl + '" target="_blank" rel="noopener">Support</a>'
+        + marketingLink
         + '</div>';
       const body = '<div class="body"><div class="tagk">' + p.platform + '</div>' + title + '<p>' + p.description + '</p>' + links + '</div>';
       return '<article class="proj">' + thumb + body + '</article>';
