@@ -5,8 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DarskeeWorks — Apps &amp; Websites for Trade &amp; Small Businesses</title>
 <meta name="description" content="DarskeeWorks builds websites and mobile apps for trade and small businesses. Founded by Daril Quervo — a developer with a real background as a licensed electrician and carpenter. Works in English, across time zones." />
+<link rel="canonical" href="https://darskeeworks.online/" />
 <link rel="icon" type="image/png" href="icon.png" />
 <link rel="apple-touch-icon" href="icon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="DarskeeWorks — Apps &amp; Websites for Trade &amp; Small Businesses" />
+<meta property="og:description" content="Websites and mobile apps for trade and small businesses, built by a developer with a real background as a licensed electrician and carpenter." />
+<meta property="og:url" content="https://darskeeworks.online/" />
+<meta property="og:image" content="https://darskeeworks.online/assets/website.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="DarskeeWorks — Apps &amp; Websites for Trade &amp; Small Businesses" />
+<meta name="twitter:description" content="Websites and mobile apps for trade and small businesses, built by a developer with a real background as a licensed electrician and carpenter." />
+<meta name="twitter:image" content="https://darskeeworks.online/assets/website.png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -37,6 +49,13 @@
       "worksFor": { "@id": "https://darilquervo.com/#darskeeworks" },
       "url": "https://darilquervo.com/",
       "sameAs": ["https://github.com/darilquervodev-spec"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://darskeeworks.online/#website",
+      "name": "DarskeeWorks",
+      "url": "https://darskeeworks.online/",
+      "publisher": { "@id": "https://darilquervo.com/#darskeeworks" }
     }
   ]
 }
@@ -54,6 +73,7 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#work">Work</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact" class="btn-sm">Get in touch</a>
     </div>
   </div>
@@ -81,8 +101,8 @@
           <li><b>Founder</b><span class="fill"></span><span class="val">Daril Quervo</span></li>
           <li><b>Location</b><span class="fill"></span><span class="val">Fukuoka, JP</span></li>
           <li><b>Works in</b><span class="fill"></span><span class="val">English · any zone</span></li>
-          <li><b>Shipped</b><span class="fill"></span><span class="val">4 Android · 1 iOS</span></li>
-          <li><b>Websites</b><span class="fill"></span><span class="val">3 live</span></li>
+          <li><b>Shipped</b><span class="fill"></span><span class="val" id="stat-shipped">4 Android · 2 iOS</span></li>
+          <li><b>Websites</b><span class="fill"></span><span class="val" id="stat-websites">3 live</span></li>
           <li><b>Open to</b><span class="fill"></span><span class="val">Freelance · Roles</span></li>
           <li><b>Status</b><span class="fill"></span><span class="val val-status">Available now</span></li>
         </ul>
@@ -232,8 +252,8 @@
     <div class="cred-grid">
       <div class="cred">
         <div class="k">Shipped real work</div>
-        <h4>5 apps live in the stores</h4>
-        <p>Four Android apps and one iOS app currently published and running — not demos, real released products.</p>
+        <h4 id="stat-cred-heading">6 apps live in the stores</h4>
+        <p id="stat-cred-body">Four Android apps and two iOS apps currently published and running — not demos, real released products.</p>
       </div>
       <div class="cred">
         <div class="k">Licensed trades</div>
@@ -249,6 +269,76 @@
   </div>
 </section>
 
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="dimline"><span class="tag">How it works</span><span class="bar"></span></div>
+      <div class="eyebrow">From first message to launch</div>
+      <h2>A straightforward process</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="num">01</div>
+        <h4>Tell me what you need</h4>
+        <p>Message me with your business, your idea, or the problem you're trying to solve. No forms, no sales calls required.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">02</div>
+        <h4>Scope &amp; quote</h4>
+        <p>I reply within 1–2 days with a plain-language scope and a fixed price or estimate — you'll know the cost before anything starts.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">03</div>
+        <h4>Build &amp; check in</h4>
+        <p>I build in the open — you can see progress and give feedback along the way, not just at the very end.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">04</div>
+        <h4>Launch &amp; handoff</h4>
+        <p>Once it's live, you get full ownership of the finished work and a window of post-launch support for anything that comes up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="light">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="dimline dimline-section"><span class="tag">FAQ</span><span class="bar"></span></div>
+      <div class="eyebrow">Common questions</div>
+      <h2>Before you reach out</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How fast do you reply?</summary>
+        <div class="faq-a">Within 1–2 days, usually faster. I work across time zones, so don't worry about when you're messaging.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you only build mobile apps, or websites too?</summary>
+        <div class="faq-a">Both. I've shipped Android and iOS apps to the Play Store and App Store, plus static and full-stack websites — see the <a href="#work">work section</a> for real examples of each.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How does payment work?</summary>
+        <div class="faq-a">A deposit up front, balance on delivery (or milestone-based for bigger projects). Full details are in the <a href="terms.html">Terms of Service</a>.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Who owns the code once the project is done?</summary>
+        <div class="faq-a">You do. Once a project is paid in full, you get full ownership of the source code and deliverables — see the Terms for specifics on third-party licenses.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer support after launch?</summary>
+        <div class="faq-a">Yes — bug fixes for issues present at delivery are covered for a period after handoff, and ongoing maintenance can be arranged separately. Details in the Terms.</div>
+      </details>
+      <details class="faq-item">
+        <summary>I'm not sure what I need — can I still reach out?</summary>
+        <div class="faq-a">Yes. Tell me about your business or idea in the <a href="#contact">contact form</a> and I'll suggest the simplest option that fits — no pressure to buy more than you need.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- WORK -->
 <section id="work">
   <div class="wrap">
@@ -256,6 +346,13 @@
       <div class="dimline"><span class="tag">Selected work</span><span class="bar"></span></div>
       <div class="eyebrow">Real, shipped projects</div>
       <h2>A few things I've built</h2>
+    </div>
+    <div class="filter-tabs" id="filter-tabs">
+      <button type="button" class="filter-tab active" data-filter="all">All</button>
+      <button type="button" class="filter-tab" data-filter="android">Android</button>
+      <button type="button" class="filter-tab" data-filter="ios">iOS</button>
+      <button type="button" class="filter-tab" data-filter="web">Web</button>
+      <button type="button" class="filter-tab" data-filter="desktop">Desktop</button>
     </div>
     <div class="proj-grid" id="proj-grid"></div>
   </div>
@@ -311,10 +408,11 @@
 <footer>
   <div class="wrap">
     <span class="fbrand">Darskee<span>Works</span></span>
-    <small>© Daril Quervo — Developer for trade &amp; small businesses</small>
+    <small>© Daril Quervo — Developer for trade &amp; small businesses · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></small>
   </div>
 </footer>
 
+<script src="assets/js/site.js"></script>
 <script>
   // --- Mobile nav ---
   const navToggle = document.getElementById('nav-toggle');
@@ -333,23 +431,11 @@
   });
 
   // --- Project cards from works.json ---
-  function slugify(str) {
-    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  }
-
-  function autoPrivacy(p) {
-    if (p.privacy) return p.privacy;
-    return 'privacy.html#' + slugify(p.name);
-  }
-
-  function autoSupport(p) {
-    if (p.support) return p.support;
-    return 'mailto:darilquervo.dev@gmail.com?subject=' + encodeURIComponent('Support: ' + p.name);
-  }
-
   function renderProjects(data) {
     const grid = document.getElementById('proj-grid');
     grid.innerHTML = data.projects.map(function (p) {
+      const slug = p.slug || DW.slugify(p.name);
+      const category = DW.platformToCategory(p.platform);
       const thumbContent = p.image
         ? '<img src="' + p.image + '" alt="' + p.name + '" />'
         : '[ screenshot ]<br>' + p.name;
@@ -359,24 +445,65 @@
       const title = p.link
         ? '<h4><a href="' + p.link + '" target="_blank" rel="noopener">' + p.name + '</a></h4>'
         : '<h4>' + p.name + '</h4>';
-      const privacyUrl = autoPrivacy(p);
-      const supportUrl = autoSupport(p);
+      const privacyUrl = DW.autoPrivacy(p);
+      const supportUrl = DW.autoSupport(p);
       const marketingLink = p.marketing
         ? '<a href="' + p.marketing + '" target="_blank" rel="noopener">Marketing</a>'
-        : '';
+        : '<a href="apps/' + slug + '/">Details →</a>';
       const links = '<div class="proj-links">'
         + '<a href="' + privacyUrl + '" target="_blank" rel="noopener">Privacy Policy</a>'
         + '<a href="' + supportUrl + '" target="_blank" rel="noopener">Support</a>'
         + marketingLink
         + '</div>';
       const body = '<div class="body"><div class="tagk">' + p.platform + '</div>' + title + '<p>' + p.description + '</p>' + links + '</div>';
-      return '<article class="proj">' + thumb + body + '</article>';
+      return '<article class="proj reveal" data-category="' + category + '">' + thumb + body + '</article>';
     }).join('');
+    DW.initScrollReveal('.proj');
   }
 
-  fetch('works.json')
-    .then(function (r) { return r.json(); })
-    .then(renderProjects)
+  function syncStats(data) {
+    const projects = data.projects || [];
+    const counts = { android: 0, ios: 0, web: 0, desktop: 0 };
+    projects.forEach(function (p) {
+      const cat = DW.platformToCategory(p.platform);
+      if (counts[cat] !== undefined) counts[cat]++;
+    });
+
+    const shipped = document.getElementById('stat-shipped');
+    if (shipped) shipped.textContent = counts.android + ' Android · ' + counts.ios + ' iOS';
+
+    const websites = document.getElementById('stat-websites');
+    if (websites) websites.textContent = (counts.web + counts.desktop) + ' live';
+
+    const total = counts.android + counts.ios + counts.web + counts.desktop;
+    const heading = document.getElementById('stat-cred-heading');
+    if (heading) heading.textContent = total + ' apps & sites live';
+
+    const body = document.getElementById('stat-cred-body');
+    if (body) body.textContent = counts.android + ' Android app' + (counts.android === 1 ? '' : 's') + ' and ' + counts.ios + ' iOS app' + (counts.ios === 1 ? '' : 's') + ' currently published and running — not demos, real released products.';
+  }
+
+  function initFilterTabs(data) {
+    const tabs = document.querySelectorAll('.filter-tab');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        const filter = tab.getAttribute('data-filter');
+        document.querySelectorAll('.proj').forEach(function (card) {
+          const match = filter === 'all' || card.getAttribute('data-category') === filter;
+          card.hidden = !match;
+        });
+      });
+    });
+  }
+
+  DW.loadWorks()
+    .then(function (data) {
+      renderProjects(data);
+      syncStats(data);
+      initFilterTabs(data);
+    })
     .catch(function () {
       renderProjects({
         projects: [
@@ -386,6 +513,8 @@
         ]
       });
     });
+
+  DW.initScrollReveal('.reveal');
 
   // --- Contact form → opens email client ---
   document.getElementById('quote-form').addEventListener('submit', function (e) {

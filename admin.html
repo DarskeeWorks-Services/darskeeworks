@@ -246,6 +246,14 @@ main{padding:32px 0 60px;}
 .hidden{display:none;}
 .panel-footer{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
 
+.advanced-block{margin-top:6px;}
+.advanced-block summary{
+  cursor:pointer;font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--txt-mut);margin-bottom:14px;
+}
+.advanced-inner{display:grid;gap:16px;margin-top:14px;}
+.dim-label{opacity:.6;}
+
 footer{border-top:1px solid var(--line);padding:24px 0;text-align:center;}
 footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.05em;}
 
@@ -356,6 +364,63 @@ footer small{color:var(--txt-mut);font-family:'Space Mono',monospace;font-size:.
       <label for="f-support">Support URL</label>
       <input type="url" id="f-support" placeholder="https://darskeeworks.online/support/appname" />
     </div>
+    <div class="field">
+      <label for="f-marketing">Marketing page (bespoke, optional)</label>
+      <input type="text" id="f-marketing" placeholder="e.g. mochisensei-marketing.html" />
+    </div>
+
+    <details class="field advanced-block" id="advanced-details">
+      <summary>Advanced (app page details)</summary>
+      <div class="advanced-inner">
+        <div class="field">
+          <label for="f-status">Status</label>
+          <select id="f-status">
+            <option value="">— live (default) —</option>
+            <option value="beta">Beta</option>
+            <option value="coming-soon">Coming soon</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-slug">Slug override</label>
+          <input type="text" id="f-slug" placeholder="auto-generated from name if left blank" />
+        </div>
+        <div class="field">
+          <label for="f-version">Version</label>
+          <input type="text" id="f-version" placeholder="e.g. 1.2.0" />
+        </div>
+        <div class="field">
+          <label for="f-tags">Tags (comma-separated)</label>
+          <input type="text" id="f-tags" placeholder="offline-first, budgeting, JLPT" />
+        </div>
+        <div class="field">
+          <label for="f-features">Features (one per line)</label>
+          <textarea id="f-features" placeholder="One feature per line"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-screenshots">Screenshots (one image path per line)</label>
+          <textarea id="f-screenshots" placeholder="assets/screenshots/app-1.png"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-changelog">Changelog (one entry per line: version | date | notes)</label>
+          <textarea id="f-changelog" placeholder="1.1.0 | 2026-06-01 | Added dark mode"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-terms">Per-app Terms URL (optional override)</label>
+          <input type="url" id="f-terms" placeholder="falls back to site-wide terms.html" />
+        </div>
+
+        <div class="field"><label class="dim-label">Store links (shown only if filled in)</label></div>
+        <div class="field"><label for="sl-playStore">Google Play</label><input type="url" id="sl-playStore" /></div>
+        <div class="field"><label for="sl-appStore">App Store</label><input type="url" id="sl-appStore" /></div>
+        <div class="field"><label for="sl-testflight">TestFlight</label><input type="url" id="sl-testflight" /></div>
+        <div class="field"><label for="sl-apkDownload">APK Download</label><input type="url" id="sl-apkDownload" /></div>
+        <div class="field"><label for="sl-website">Website</label><input type="url" id="sl-website" /></div>
+        <div class="field"><label for="sl-docs">Documentation</label><input type="url" id="sl-docs" /></div>
+        <div class="field"><label for="sl-userGuide">User Guide</label><input type="url" id="sl-userGuide" /></div>
+        <div class="field"><label for="sl-demoVideo">Demo Video</label><input type="url" id="sl-demoVideo" /></div>
+        <div class="field"><label for="sl-github">GitHub</label><input type="url" id="sl-github" /></div>
+      </div>
+    </details>
 
     <div class="panel-footer">
       <button type="button" class="btn btn-primary" id="btn-save">Save project</button>
@@ -491,6 +556,7 @@ document.getElementById('btn-download').addEventListener('click', function () {
 
 // ── edit overlay ──────────────────────────────────────────────────────────────
 var KNOWN_PLATFORMS = ['Android · Google Play', 'iOS · App Store', 'Website', 'Full-stack app'];
+var STORE_LINK_KEYS = ['playStore', 'appStore', 'testflight', 'apkDownload', 'website', 'docs', 'userGuide', 'demoVideo', 'github'];
 
 document.getElementById('btn-add').addEventListener('click', function () { openEdit(-1); });
 document.getElementById('btn-close').addEventListener('click', closePanel);
@@ -526,7 +592,30 @@ function openEdit(index) {
   document.getElementById('f-link').value    = p.link        || '';
   document.getElementById('f-privacy').value = p.privacy     || '';
   document.getElementById('f-support').value = p.support     || '';
+  document.getElementById('f-marketing').value = p.marketing || '';
   updatePreview(p.image || '');
+
+  document.getElementById('f-status').value  = p.status  || '';
+  document.getElementById('f-slug').value    = p.slug    || '';
+  document.getElementById('f-version').value = p.version || '';
+  document.getElementById('f-tags').value       = (p.tags || []).join(', ');
+  document.getElementById('f-features').value   = (p.features || []).join('\n');
+  document.getElementById('f-screenshots').value = (p.screenshots || []).join('\n');
+  document.getElementById('f-changelog').value  = (p.changelog || []).map(function (c) {
+    return [c.version || '', c.date || '', c.notes || ''].join(' | ');
+  }).join('\n');
+  document.getElementById('f-terms').value = p.terms || '';
+
+  var storeLinks = p.storeLinks || {};
+  STORE_LINK_KEYS.forEach(function (key) {
+    document.getElementById('sl-' + key).value = storeLinks[key] || '';
+  });
+
+  var hasAdvanced = !!(p.status || p.slug || p.version || (p.tags && p.tags.length) ||
+    (p.features && p.features.length) || (p.screenshots && p.screenshots.length) ||
+    (p.changelog && p.changelog.length) || p.terms ||
+    STORE_LINK_KEYS.some(function (key) { return storeLinks[key]; }));
+  document.getElementById('advanced-details').open = hasAdvanced;
 
   document.getElementById('overlay').classList.add('open');
   setTimeout(function () { document.getElementById('f-name').focus(); }, 60);
@@ -548,16 +637,46 @@ document.getElementById('btn-save').addEventListener('click', function () {
   var platform = selVal === '__custom__'
     ? document.getElementById('f-platform-custom').value.trim()
     : selVal;
-  var name    = document.getElementById('f-name').value.trim();
-  var desc    = document.getElementById('f-desc').value.trim();
-  var image   = document.getElementById('f-image').value.trim();
-  var link    = document.getElementById('f-link').value.trim();
-  var privacy = document.getElementById('f-privacy').value.trim();
-  var support = document.getElementById('f-support').value.trim();
+  var name      = document.getElementById('f-name').value.trim();
+  var desc      = document.getElementById('f-desc').value.trim();
+  var image     = document.getElementById('f-image').value.trim();
+  var link      = document.getElementById('f-link').value.trim();
+  var privacy   = document.getElementById('f-privacy').value.trim();
+  var support   = document.getElementById('f-support').value.trim();
+  var marketing = document.getElementById('f-marketing').value.trim();
 
   if (!platform || !name || !desc) { alert('Platform, name, and description are required.'); return; }
 
   var proj = { platform: platform, name: name, description: desc, image: image, link: link, privacy: privacy, support: support };
+  if (marketing) proj.marketing = marketing;
+
+  var status  = document.getElementById('f-status').value;
+  var slug    = document.getElementById('f-slug').value.trim();
+  var version = document.getElementById('f-version').value.trim();
+  var terms   = document.getElementById('f-terms').value.trim();
+  var tags = document.getElementById('f-tags').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  var features = document.getElementById('f-features').value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+  var screenshots = document.getElementById('f-screenshots').value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+  var changelog = document.getElementById('f-changelog').value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean).map(function (line) {
+    var parts = line.split('|').map(function (s) { return s.trim(); });
+    return { version: parts[0] || '', date: parts[1] || '', notes: parts[2] || '' };
+  });
+  var storeLinks = {};
+  STORE_LINK_KEYS.forEach(function (key) {
+    var val = document.getElementById('sl-' + key).value.trim();
+    if (val) storeLinks[key] = val;
+  });
+
+  if (status) proj.status = status;
+  if (slug) proj.slug = slug;
+  if (version) proj.version = version;
+  if (terms) proj.terms = terms;
+  if (tags.length) proj.tags = tags;
+  if (features.length) proj.features = features;
+  if (screenshots.length) proj.screenshots = screenshots;
+  if (changelog.length) proj.changelog = changelog;
+  if (Object.keys(storeLinks).length) proj.storeLinks = storeLinks;
+
   if (editIndex === -1) { projects.push(proj); } else { projects[editIndex] = proj; }
   renderList();
   closePanel();

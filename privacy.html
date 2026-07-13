@@ -53,11 +53,8 @@
   <div id="app-policies"></div>
 </div>
 
+<script src="assets/js/site.js"></script>
 <script>
-  function slugify(str) {
-    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  }
-
   function dataDisclosure(p) {
     const platform = p.platform || '';
     const name = p.name || '';
@@ -142,7 +139,7 @@
     const container = document.getElementById('app-policies');
 
     container.innerHTML = data.projects.map(function(p) {
-      const slug = slugify(p.name);
+      const slug = p.slug || DW.slugify(p.name);
       const storeLink = p.link ? '<a href="' + p.link + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name;
       return '<div class="app-section" id="' + slug + '">'
         + '<span class="platform-tag">' + p.platform + '</span>'
@@ -159,8 +156,7 @@
     }
   }
 
-  fetch('works.json')
-    .then(function(r) { return r.json(); })
+  DW.loadWorks()
     .then(renderPolicies)
     .catch(function() {
       document.getElementById('loading').textContent = 'Could not load app data.';
