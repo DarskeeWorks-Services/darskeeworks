@@ -3,423 +3,363 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DarskeeWorks — Apps &amp; Websites for Trade &amp; Small Businesses</title>
-<meta name="description" content="DarskeeWorks builds websites and mobile apps for trade and small businesses. Founded by Daril Quervo — a developer with a real background as a licensed electrician and carpenter. Works in English, across time zones." />
-<link rel="icon" type="image/png" href="icon.png" />
-<link rel="apple-touch-icon" href="icon.png" />
+<title>DarskeeWorks — Websites, Apps &amp; Digital Products | Digital Studio &amp; Marketplace</title>
+<meta name="description" content="DarskeeWorks builds websites, mobile apps, business software and AI automation, and sells ready-made digital products. Affordable website packages for the Philippines and international clients." />
+<link rel="canonical" href="https://darskeeworks.online/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="DarskeeWorks" />
+<meta property="og:title" content="DarskeeWorks — Digital Studio &amp; Marketplace" />
+<meta property="og:description" content="Websites, mobile apps, business software and ready-made digital resources designed to help you work smarter and grow." />
+<meta property="og:url" content="https://darskeeworks.online/" />
+<meta property="og:image" content="https://darskeeworks.online/assets/brand/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="DarskeeWorks — Digital Studio &amp; Marketplace" />
+<meta name="twitter:description" content="Websites, mobile apps, business software and ready-made digital products." />
+<meta name="twitter:image" content="https://darskeeworks.online/assets/brand/og-image.jpg" />
+<!-- partial:head -->
+<meta name="theme-color" content="#0A0F19" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/site.css" />
+<script src="js/config.js" defer></script>
+<script src="js/site.js" defer></script>
+<!-- /partial:head -->
+<script src="js/data/services.js" defer></script>
+<script src="js/data/products.js" defer></script>
+<script src="js/data/case-studies.js" defer></script>
+<script src="js/pages/home.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": ["Organization", "ProfessionalService"],
-      "@id": "https://darilquervo.com/#darskeeworks",
+      "@id": "https://darskeeworks.online/#organization",
       "name": "DarskeeWorks",
       "alternateName": ["Darskee Works", "Darskeeworks"],
-      "url": "https://darilquervo.com/",
-      "description": "DarskeeWorks builds websites and mobile apps for trade and small businesses.",
+      "url": "https://darskeeworks.online/",
+      "logo": "https://darskeeworks.online/assets/brand/dw-mark-256.png",
+      "image": "https://darskeeworks.online/assets/brand/og-image.jpg",
+      "description": "Digital studio and marketplace building websites, mobile apps, business software and AI automation, and selling ready-made digital products.",
+      "slogan": "Build smarter. Work better. Grow digitally.",
       "email": "darilquervo.dev@gmail.com",
-      "founder": { "@id": "https://darilquervo.com/#daril" },
-      "areaServed": "Worldwide",
-      "knowsAbout": ["Web development", "Mobile app development", "iOS apps", "Android apps", "Websites for small businesses"],
+      "founder": { "@id": "https://darskeeworks.online/#founder" },
+      "areaServed": ["PH", "JP", "US", "Worldwide"],
+      "knowsAbout": ["Website development", "Mobile app development", "iOS apps", "Android apps", "Business software", "AI automation", "UI/UX design"],
       "address": { "@type": "PostalAddress", "addressLocality": "Fukuoka", "addressCountry": "JP" },
       "sameAs": ["https://github.com/darilquervodev-spec"]
     },
     {
       "@type": "Person",
-      "@id": "https://darilquervo.com/#daril",
+      "@id": "https://darskeeworks.online/#founder",
       "name": "Daril Quervo",
       "jobTitle": "Founder & Developer",
-      "worksFor": { "@id": "https://darilquervo.com/#darskeeworks" },
-      "url": "https://darilquervo.com/",
-      "sameAs": ["https://github.com/darilquervodev-spec"]
+      "worksFor": { "@id": "https://darskeeworks.online/#organization" },
+      "url": "https://darskeeworks.online/about.html",
+      "sameAs": ["https://darilquervo.com/", "https://github.com/darilquervodev-spec"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://darskeeworks.online/#website",
+      "url": "https://darskeeworks.online/",
+      "name": "DarskeeWorks",
+      "publisher": { "@id": "https://darskeeworks.online/#organization" }
     }
   ]
 }
 </script>
 </head>
 <body>
-
-<nav>
+<!-- partial:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="wrap">
-    <div class="brand">Darskee<span>Works</span></div>
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+    <a class="logo" href="index.html" aria-label="DarskeeWorks home">
+      <img src="assets/brand/dw-mark-64.png" alt="" width="36" height="36" />
+      <span>Darskee<span>Works</span></span>
+    </a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open navigation">
       <span></span><span></span><span></span>
     </button>
-    <div class="navlinks" id="navlinks">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#contact" class="btn-sm">Get in touch</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow rise d1">DarskeeWorks · App &amp; Web Developer</div>
-        <h1 class="rise d2">I build things<br>that <span class="accent">work.</span></h1>
-        <p class="lede rise d3">App &amp; web developer building clean, reliable websites and mobile apps — published on the App Store and Google Play. Available for <strong>freelance projects, contract work, and developer roles.</strong></p>
-        <div class="cta-row rise d4">
-          <a href="#contact" class="btn btn-primary">Get in touch →</a>
-          <a href="cv.pdf" class="btn btn-ghost" download>Download CV</a>
-        </div>
-      </div>
-
-      <aside class="spec rise d3" aria-label="Quick facts">
-        <div class="spec-head">
-          <span class="who">DARSKEEWORKS</span>
-          <span class="dot" title="Available"></span>
-        </div>
-        <ul>
-          <li><b>Founder</b><span class="fill"></span><span class="val">Daril Quervo</span></li>
-          <li><b>Location</b><span class="fill"></span><span class="val">Fukuoka, JP</span></li>
-          <li><b>Works in</b><span class="fill"></span><span class="val">English · any zone</span></li>
-          <li><b>Shipped</b><span class="fill"></span><span class="val">4 Android · 1 iOS</span></li>
-          <li><b>Websites</b><span class="fill"></span><span class="val">3 live</span></li>
-          <li><b>Open to</b><span class="fill"></span><span class="val">Freelance · Roles</span></li>
-          <li><b>Status</b><span class="fill"></span><span class="val val-status">Available now</span></li>
-        </ul>
-      </aside>
-    </div>
-
-    <div class="proof">
-      <span class="item"><span class="check">✓</span> Published on <b>App&nbsp;Store</b></span>
-      <span class="item"><span class="check">✓</span> Published on <b>Google&nbsp;Play</b></span>
-      <span class="item"><span class="check">✓</span> <b>Licensed</b> trades</span>
-      <span class="item"><span class="check">✓</span> Self-taught, <b>ships real work</b></span>
-    </div>
+    <nav class="site-nav" id="nav-menu" aria-label="Main">
+      <ul>
+        <li><a href="services.html" data-page="services">Services</a></li>
+        <li><a href="shop.html" data-page="shop">Shop</a></li>
+        <li><a href="portfolio.html" data-page="portfolio">Portfolio</a></li>
+        <li><a href="pricing.html" data-page="pricing">Pricing</a></li>
+        <li><a href="about.html" data-page="about">About</a></li>
+        <li><a href="support.html" data-page="support">Support</a></li>
+      </ul>
+      <a class="btn btn-primary btn-sm" href="contact.html" data-track="cta_quote" data-track-label="header">Request a Quote</a>
+    </nav>
   </div>
 </header>
+<!-- /partial:header -->
 
-<!-- ABOUT -->
-<section id="about" class="light">
-  <div class="wrap">
-    <div class="dimline dimline-section"><span class="tag">About</span><span class="bar"></span></div>
-    <div class="about-grid">
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
       <div>
-        <h2>A builder, on-site and on-screen.</h2>
-        <p>I'm Daril, founder of <strong>DarskeeWorks</strong> — a small app &amp; web studio based in Japan. I come from a hands-on background as a <strong>licensed Master Electrician</strong> and <strong>carpenter</strong>. Working in Japan as an Overseas Filipino Worker, I taught myself to build mobile apps and websites, and shipped real ones to the App Store and Google Play.</p>
-        <p>Because I've run the tools and worked the trades, DarskeeWorks understands small, practical businesses. I build things that are simple, reliable, and actually used — no bloat, no jargon. If you need a website or app that just works and looks professional, I can help.</p>
-        <p class="lang-note">Languages: English · Japanese (N4) · Tagalog · Cebuano</p>
+        <span class="eyebrow reveal">Digital Studio &amp; Marketplace</span>
+        <h1 class="reveal reveal-2">We turn ideas into digital products that <span class="accent">work.</span></h1>
+        <p class="hero-sub reveal reveal-3">Websites, mobile applications, business software, and ready-made digital resources designed to help you work smarter and grow.</p>
+        <div class="btn-row reveal reveal-3">
+          <a class="btn btn-primary btn-lg" href="services.html" data-track="cta_services" data-track-label="hero">Explore Services</a>
+          <a class="btn btn-ghost-light btn-lg" href="shop.html" data-track="cta_shop" data-track-label="hero">Shop Digital Products</a>
+        </div>
+        <ul class="hero-points">
+          <li><span data-icon="check"></span> Website packages from ₱4,999</li>
+          <li><span data-icon="check"></span> Apps published on Google Play &amp; App Store</li>
+          <li><span data-icon="check"></span> Philippines &amp; international clients</li>
+        </ul>
       </div>
-      <!-- Replace daril.jpg with your real photo file in this folder. -->
-      <div class="about-photo">
-        <img src="daril.jpg" alt="Daril Quervo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div class="ph">[ photo: daril.jpg ]</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="dimline"><span class="tag">Our Services</span><span class="bar"></span><span class="tag">Web &amp; Mobile</span></div>
-      <div class="eyebrow">Engineered for local &amp; international clients</div>
-      <h2>What we build &amp; what it costs</h2>
-    </div>
-
-    <div class="svc-grid">
-
-      <!-- 01 Portfolio -->
-      <article class="svc-card">
-        <div class="svc-top">
-          <span class="svc-num">01</span>
-          <span class="svc-badge">Web</span>
-        </div>
-        <h3>Personal / Professional Portfolio</h3>
-        <div class="svc-price">₱15,000.00</div>
-        <p class="svc-desc">Mobile-first, ultra-fast landing pages for local professionals, creatives, and businesses. Establish a clean digital footprint with zero monthly hosting fees.</p>
-        <a href="#contact" class="svc-cta">Inquire Now →</a>
-      </article>
-
-      <!-- 02 Stores -->
-      <article class="svc-card">
-        <div class="svc-top">
-          <span class="svc-num">02</span>
-          <span class="svc-badge">Web</span>
-        </div>
-        <h3>Stores / Small Business Catalog</h3>
-        <div class="svc-price">₱35,000.00</div>
-        <p class="svc-desc">Static product catalog engines with frictionless Chat-Commerce routing straight to Facebook Messenger or WhatsApp Business. Zero mandatory monthly platform overhead.</p>
-        <a href="#contact" class="svc-cta">Inquire Now →</a>
-      </article>
-
-      <!-- 03 School / Institutional -->
-      <article class="svc-card">
-        <div class="svc-top">
-          <span class="svc-num">03</span>
-          <span class="svc-badge">Web · Institutional</span>
-        </div>
-        <h3>School / Institutional Portals</h3>
-        <div class="svc-price">₱85,000.00</div>
-        <p class="svc-desc">Highly secure, R.A. 10173 (Data Privacy Act) compliant institutional structures featuring official Transparency Seal matrices and downloadable document modules.</p>
-        <a href="#contact" class="svc-cta">Inquire Now →</a>
-      </article>
-
-      <!-- 04 International CV -->
-      <article class="svc-card">
-        <div class="svc-top">
-          <span class="svc-num">04</span>
-          <span class="svc-badge">Web</span>
-        </div>
-        <h3>International CV &amp; Job-Seeker Portfolio</h3>
-        <div class="svc-price">₱15,000.00</div>
-        <p class="svc-desc">Clean, semantic HTML structures optimized to pass automated corporate Applicant Tracking Systems (ATS) and land overseas employment interviews.</p>
-        <a href="#contact" class="svc-cta">Inquire Now →</a>
-      </article>
-
-      <!-- 05 Mobile App — Featured -->
-      <article class="svc-card svc-featured">
-        <div class="svc-feat-left">
-          <div class="svc-top">
-            <span class="svc-num">05</span>
-          </div>
-          <h3>Cross-Platform Mobile App Development</h3>
-          <p class="svc-desc">Custom native-performance mobile applications engineered for both the Google Play Store (Android) and the Apple App Store (iOS). Includes secure backend integration, local data storage solutions, and fluid UI/UX design.</p>
-          <div class="svc-store-badges">
-            <span class="svc-store-badge">✓ Google Play · Android</span>
-            <span class="svc-store-badge">✓ App Store · iOS</span>
-          </div>
-        </div>
-        <div class="svc-feat-right">
-          <div class="svc-price-alt">Custom Quote</div>
-          <p class="svc-price-sub">Hourly or project-based</p>
-          <a href="#contact" class="btn btn-primary">Get a Quote →</a>
-        </div>
-      </article>
-
-    </div>
-
-    <p class="offer-note">Not sure which service fits? <a href="#contact">Tell me about your project</a> and I'll suggest the simplest option that works — no pressure.</p>
-  </div>
-</section>
-
-<!-- TECH -->
-<section id="tech">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="dimline"><span class="tag">Capabilities</span><span class="bar"></span></div>
-      <div class="eyebrow">What I work with</div>
-      <h2>Tools &amp; platforms</h2>
-    </div>
-    <div class="tech-tags">
-      <span class="tag-chip">iOS · Xcode</span>
-      <span class="tag-chip">Android · Google Play</span>
-      <span class="tag-chip">HTML</span>
-      <span class="tag-chip">CSS</span>
-      <span class="tag-chip">JavaScript</span>
-      <span class="tag-chip">Responsive web</span>
-      <span class="tag-chip">VS Code</span>
-      <span class="tag-chip">Git &amp; GitHub</span>
-      <span class="tag-chip">App Store &amp; Play publishing</span>
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section class="light section-cred">
-  <div class="wrap">
-    <div class="dimline dimline-section"><span class="tag">Why me</span><span class="bar"></span></div>
-    <div class="cred-grid">
-      <div class="cred">
-        <div class="k">Shipped real work</div>
-        <h4>5 apps live in the stores</h4>
-        <p>Four Android apps and one iOS app currently published and running — not demos, real released products.</p>
-      </div>
-      <div class="cred">
-        <div class="k">Licensed trades</div>
-        <h4>Electrician &amp; carpenter</h4>
-        <p>Registered Master Electrician (Philippines) and working carpenter in Japan. I understand how trade businesses actually run.</p>
-      </div>
-      <div class="cred">
-        <div class="k">Easy to work with</div>
-        <h4>English · across time zones</h4>
-        <p>Clear communication, straight answers, and reliable delivery — wherever in the world your business is based.</p>
+      <div class="showcase" aria-label="Examples of DarskeeWorks projects">
+        <figure class="showcase-item wide">
+          <picture>
+            <source type="image/webp" srcset="assets/opt/guroassistph-480.webp 480w, assets/opt/guroassistph-960.webp 960w" sizes="(max-width: 900px) 100vw, 520px" />
+            <img src="assets/guroassistph.png" alt="GuroAssist PH web app — DLL and DLP generator for Filipino teachers" width="960" height="480" fetchpriority="high" />
+          </picture>
+          <figcaption class="showcase-label"><strong>GuroAssist PH</strong><span>Web app</span></figcaption>
+        </figure>
+        <figure class="showcase-item square">
+          <picture>
+            <source type="image/webp" srcset="assets/opt/mochi-sensei-480.webp" />
+            <img src="assets/mochi-sensei.png" alt="Mochi Sensei iOS app icon" width="480" height="480" loading="lazy" />
+          </picture>
+          <figcaption class="showcase-label"><strong>Mochi Sensei</strong><span>iOS</span></figcaption>
+        </figure>
+        <figure class="showcase-item square">
+          <picture>
+            <source type="image/webp" srcset="assets/opt/inventory-app-480.webp" />
+            <img src="assets/inventory-app.png" alt="Darskee Sales and Inventory Android app icon" width="480" height="480" loading="lazy" />
+          </picture>
+          <figcaption class="showcase-label"><strong>Sales &amp; Inventory</strong><span>Android</span></figcaption>
+        </figure>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- WORK -->
-<section id="work">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="dimline"><span class="tag">Selected work</span><span class="bar"></span></div>
-      <div class="eyebrow">Real, shipped projects</div>
-      <h2>A few things I've built</h2>
+  <!-- TRUST (counts are computed from works.json) -->
+  <section class="trust" aria-label="At a glance">
+    <div class="wrap trust-grid">
+      <div class="trust-item"><strong data-stat="storeApps">6</strong><span>apps published on Google Play &amp; the App Store</span></div>
+      <div class="trust-item"><strong data-stat="web">3</strong><span>live websites &amp; web apps</span></div>
+      <div class="trust-item"><strong>PH · JP · Global</strong><span>Based in Japan, serving the Philippines &amp; worldwide</span></div>
+      <div class="trust-item"><strong>Direct</strong><span>Work one-to-one with the developer</span></div>
     </div>
-    <div class="proj-grid" id="proj-grid"></div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="dimline"><span class="tag">Contact</span><span class="bar"></span><span class="tag">Reply in 1–2 days</span></div>
-      <div class="eyebrow">Let's work together</div>
-      <h2>Get in touch</h2>
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head-row">
+        <div class="section-head">
+          <span class="eyebrow">Digital Studio</span>
+          <h2>Services built around your business</h2>
+          <p>From a simple professional website to custom apps and automation — clear scope, clear price.</p>
+        </div>
+        <a class="btn btn-secondary" href="services.html">All services</a>
+      </div>
+      <div class="grid grid-3" id="home-services">
+        <noscript><p><a href="services.html">View all services</a></p></noscript>
+      </div>
     </div>
-    <div class="contact-grid">
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section section-alt" id="shop">
+    <div class="wrap">
+      <div class="section-head-row">
+        <div class="section-head">
+          <span class="eyebrow">Digital Marketplace</span>
+          <h2>Ready-made digital products</h2>
+          <p>Planners, templates and tools for teachers, small businesses and creators. New products are being prepared — items marked <em>Coming soon</em> are not yet for sale.</p>
+        </div>
+        <a class="btn btn-secondary" href="shop.html" data-track="cta_shop" data-track-label="home-products">Visit the shop</a>
+      </div>
+      <div class="grid grid-4" id="home-products"></div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head-row">
+        <div class="section-head">
+          <span class="eyebrow">Portfolio</span>
+          <h2>Real, shipped projects</h2>
+          <p>Published apps and live websites — not mockups.</p>
+        </div>
+        <a class="btn btn-secondary" href="portfolio.html" data-track="cta_portfolio" data-track-label="home">View portfolio</a>
+      </div>
+      <div class="grid grid-3" id="home-projects"></div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section section-alt" id="about">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Why DarskeeWorks</span>
+        <h2>Practical technology from someone who ships</h2>
+      </div>
+      <div class="grid grid-4">
+        <div class="panel stack">
+          <span class="icon-tile" data-icon="store"></span>
+          <h3 class="card-title">Real published products</h3>
+          <p class="card-text">Apps live on Google Play and the App Store, and websites in daily use. You see real work before you hire.</p>
+        </div>
+        <div class="panel stack">
+          <span class="icon-tile" data-icon="tools"></span>
+          <h3 class="card-title">Built for real businesses</h3>
+          <p class="card-text">The founder is a Registered Master Electrician and carpenter, so the work is shaped by how small businesses actually run.</p>
+        </div>
+        <div class="panel stack">
+          <span class="icon-tile" data-icon="shield"></span>
+          <h3 class="card-title">Clear scope &amp; pricing</h3>
+          <p class="card-text">Published package prices, a written proposal before work starts, and no mandatory monthly platform fees for static sites.</p>
+        </div>
+        <div class="panel stack">
+          <span class="icon-tile" data-icon="chat"></span>
+          <h3 class="card-title">Easy communication</h3>
+          <p class="card-text">English, Tagalog and Cebuano. Email or LINE, with replies within 1–2 business days.</p>
+        </div>
+      </div>
+      <p class="center mt-6"><a href="about.html" class="card-link">Meet the founder <span data-icon="arrow"></span></a></p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">How it works</span>
+        <h2>From idea to launch in four steps</h2>
+      </div>
+      <ol class="steps">
+        <li class="step"><h3>Tell us what you need</h3><p>Send a short project inquiry with your goals, budget range and timeline.</p></li>
+        <li class="step"><h3>Get a written proposal</h3><p>Receive scope, deliverables, timeline and a fixed price. 50% down payment to start.</p></li>
+        <li class="step"><h3>Build &amp; review</h3><p>See progress, request changes within your revision rounds, and approve the final version.</p></li>
+        <li class="step"><h3>Launch &amp; support</h3><p>Go live on your domain, with post-launch fixes and optional monthly maintenance.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PRICING PREVIEW -->
+  <section class="section section-alt" id="pricing">
+    <div class="wrap">
+      <div class="section-head-row">
+        <div class="section-head">
+          <span class="eyebrow">Pricing</span>
+          <h2>Website packages</h2>
+          <p>Fixed-price packages in Philippine pesos. Apps and custom software are quoted per project.</p>
+        </div>
+        <a class="btn btn-secondary" href="pricing.html">Compare all packages</a>
+      </div>
+      <div class="price-grid" id="home-pricing"></div>
+    </div>
+  </section>
+
+  <!--
+    TESTIMONIALS: intentionally omitted until real, permission-granted client
+    testimonials are available. Do not add placeholder or invented quotes.
+  -->
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap wrap-narrow">
+      <div class="section-head center">
+        <span class="eyebrow">FAQ</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div id="home-faq"></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section-sm" id="contact">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Have a project in mind?</h2>
+          <p>Tell us what you need. You'll get a clear proposal with scope, timeline and price — no pressure, no jargon.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-lg" href="contact.html" data-track="cta_quote" data-track-label="home-final">Request a Quote</a>
+          <a class="btn btn-ghost-light btn-lg" href="shop.html">Browse the shop</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- partial:footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <img src="assets/brand/dw-mark-64.png" alt="" width="36" height="36" loading="lazy" />
+          <span>Darskee<span>Works</span></span>
+        </a>
+        <p>Digital studio and marketplace. Websites, mobile apps, business software and ready-made digital products.</p>
+        <p>Based in Fukuoka, Japan · Serving the Philippines and clients worldwide.</p>
+      </div>
       <div>
-        <p class="contact-intro">Hiring for a project or a role, or want a quote for your own app or website? Tell me what you need and I'll get back to you within 1–2 days. I can also send my full CV on request.</p>
-        <div class="channels">
-          <a class="channel" href="mailto:darilquervo.dev@gmail.com">
-            <span class="k">Email</span><span class="v">darilquervo.dev@gmail.com</span>
-          </a>
-          <a class="channel" href="https://line.me/ti/p/YMigpeLlZr" target="_blank" rel="noopener">
-            <span class="k">LINE</span><span class="v">Message me on LINE</span>
-          </a>
-          <a class="channel" href="https://github.com/darilquervodev-spec" target="_blank" rel="noopener">
-            <span class="k">GitHub</span><span class="v">github.com/darilquervodev-spec</span>
-          </a>
-          <div class="channel">
-            <span class="k">DarskeeWorks</span><span class="v">Fukuoka, Japan · available worldwide</span>
-          </div>
-        </div>
+        <h2>Studio</h2>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="support.html">Support &amp; Maintenance</a></li>
+          <li><a href="contact.html">Request a Quote</a></li>
+        </ul>
       </div>
-
-      <form id="quote-form">
-        <div class="field">
-          <label for="fname">Your name</label>
-          <input id="fname" name="name" type="text" autocomplete="name" required />
-        </div>
-        <div class="field">
-          <label for="femail">Email</label>
-          <input id="femail" name="email" type="email" autocomplete="email" required />
-        </div>
-        <div class="field">
-          <label for="fmsg">What do you need?</label>
-          <textarea id="fmsg" name="message" placeholder="e.g. I run a plumbing business and need a simple website with a contact form." required></textarea>
-        </div>
-        <button class="submit" type="submit">Send message</button>
-        <p class="form-note" id="form-note">Your message goes directly to my inbox. I'll reply within 1–2 days.</p>
-      </form>
+      <div>
+        <h2>Shop</h2>
+        <ul>
+          <li><a href="shop.html">All products</a></li>
+          <li><a href="shop.html?category=teacher-resources">Teacher Resources</a></li>
+          <li><a href="shop.html?category=business-templates">Business Templates</a></li>
+          <li><a href="shop.html?category=website-templates">Website Templates</a></li>
+          <li><a href="shop.html?category=software-applications">Software &amp; Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:darilquervo.dev@gmail.com">Email</a></li>
+          <li><a href="https://line.me/ti/p/YMigpeLlZr" target="_blank" rel="noopener">LINE</a></li>
+          <li><a href="https://github.com/darilquervodev-spec" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="refund-policy.html">Refund Policy</a></li>
+          <li><a href="license.html">Product License</a></li>
+          <li><a href="service-agreement.html">Service Agreement</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <span class="fbrand">Darskee<span>Works</span></span>
-    <small>© Daril Quervo — Developer for trade &amp; small businesses</small>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> DarskeeWorks · Daril Quervo</span>
+      <span>Service prices in PHP · Digital products charged in the currency shown at checkout</span>
+    </div>
   </div>
 </footer>
-
-<script>
-  // --- Mobile nav ---
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks  = document.getElementById('navlinks');
-
-  navToggle.addEventListener('click', function () {
-    const isOpen = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-  });
-
-  navLinks.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // --- Project cards from works.json ---
-  function slugify(str) {
-    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  }
-
-  function autoPrivacy(p) {
-    if (p.privacy) return p.privacy;
-    return 'privacy.html#' + slugify(p.name);
-  }
-
-  function autoSupport(p) {
-    if (p.support) return p.support;
-    return 'mailto:darilquervo.dev@gmail.com?subject=' + encodeURIComponent('Support: ' + p.name);
-  }
-
-  function renderProjects(data) {
-    const grid = document.getElementById('proj-grid');
-    grid.innerHTML = data.projects.map(function (p) {
-      const thumbContent = p.image
-        ? '<img src="' + p.image + '" alt="' + p.name + '" />'
-        : '[ screenshot ]<br>' + p.name;
-      const thumb = p.link
-        ? '<a class="thumb" href="' + p.link + '" target="_blank" rel="noopener">' + thumbContent + '</a>'
-        : '<div class="thumb">' + thumbContent + '</div>';
-      const title = p.link
-        ? '<h4><a href="' + p.link + '" target="_blank" rel="noopener">' + p.name + '</a></h4>'
-        : '<h4>' + p.name + '</h4>';
-      const privacyUrl = autoPrivacy(p);
-      const supportUrl = autoSupport(p);
-      const marketingLink = p.marketing
-        ? '<a href="' + p.marketing + '" target="_blank" rel="noopener">Marketing</a>'
-        : '';
-      const links = '<div class="proj-links">'
-        + '<a href="' + privacyUrl + '" target="_blank" rel="noopener">Privacy Policy</a>'
-        + '<a href="' + supportUrl + '" target="_blank" rel="noopener">Support</a>'
-        + marketingLink
-        + '</div>';
-      const body = '<div class="body"><div class="tagk">' + p.platform + '</div>' + title + '<p>' + p.description + '</p>' + links + '</div>';
-      return '<article class="proj">' + thumb + body + '</article>';
-    }).join('');
-  }
-
-  fetch('works.json')
-    .then(function (r) { return r.json(); })
-    .then(renderProjects)
-    .catch(function () {
-      renderProjects({
-        projects: [
-          { platform: 'Android · Google Play', name: 'Your App Name', description: 'Add your project details to works.json', image: '', link: '', privacy: '', support: '' },
-          { platform: 'iOS · App Store',        name: 'Your App Name', description: 'Add your project details to works.json', image: '', link: '', privacy: '', support: '' },
-          { platform: 'Website',                name: 'Site Name',     description: 'Add your project details to works.json', image: '', link: '', privacy: '', support: '' }
-        ]
-      });
-    });
-
-  // --- Contact form → opens email client ---
-  document.getElementById('quote-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name    = document.getElementById('fname').value.trim();
-    const email   = document.getElementById('femail').value.trim();
-    const message = document.getElementById('fmsg').value.trim();
-    const subject = encodeURIComponent('Project enquiry from ' + name);
-    const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
-    window.location.href = 'mailto:darilquervo.dev@gmail.com?subject=' + subject + '&body=' + body;
-    document.getElementById('form-note').textContent = 'Opening your email app…';
-  });
-
-  // --- Download CV: graceful fallback if cv.pdf not yet uploaded ---
-  var cvBtn = document.querySelector('a[href="cv.pdf"]');
-  if (cvBtn) {
-    cvBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      fetch('cv.pdf', { method: 'HEAD' })
-        .then(function (r) {
-          if (r.ok) {
-            window.location.href = 'cv.pdf';
-          } else {
-            cvBtn.textContent = 'CV on request →';
-            cvBtn.removeAttribute('href');
-            cvBtn.setAttribute('href', '#contact');
-          }
-        })
-        .catch(function () {
-          window.location.href = 'cv.pdf';
-        });
-    });
-  }
-</script>
-
+<!-- /partial:footer -->
 </body>
 </html>

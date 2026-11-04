@@ -24,10 +24,24 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # Publish only website files. docs/, tools/, partials/, .github/ and
+      # brand-kit source images in the repo root are intentionally excluded.
+      - name: Assemble site
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp *.html _site/
+          rm -f _site/admin.html   # local-only editor, never published
+          cp works.json robots.txt sitemap.xml CNAME .nojekyll favicon.ico _site/
+          cp styles.css icon.png daril.jpg _site/
+          cp -r css js assets _site/
+          test -f cv.pdf && cp cv.pdf _site/ || true
+          echo "Published files:" && find _site -type f | sort
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
   deploy:
     environment:

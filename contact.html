@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Request a Quote — Project Inquiry | DarskeeWorks</title>
+<meta name="description" content="Request a quote for a website, mobile app, business software or AI automation project. DarskeeWorks replies within 1–2 business days." />
+<link rel="canonical" href="https://darskeeworks.online/contact.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="DarskeeWorks" />
+<meta property="og:title" content="Request a Quote — DarskeeWorks" />
+<meta property="og:description" content="Tell us about your project and receive a written proposal." />
+<meta property="og:url" content="https://darskeeworks.online/contact.html" />
+<meta property="og:image" content="https://darskeeworks.online/assets/brand/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- partial:head -->
+<meta name="theme-color" content="#0A0F19" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/site.css" />
+<script src="js/config.js" defer></script>
+<script src="js/site.js" defer></script>
+<!-- /partial:head -->
+<script src="js/data/services.js" defer></script>
+<script src="js/data/products.js" defer></script>
+<script src="js/pages/contact.js" defer></script>
+</head>
+<body>
+<!-- partial:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="DarskeeWorks home">
+      <img src="assets/brand/dw-mark-64.png" alt="" width="36" height="36" />
+      <span>Darskee<span>Works</span></span>
+    </a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="nav-menu" aria-label="Main">
+      <ul>
+        <li><a href="services.html" data-page="services">Services</a></li>
+        <li><a href="shop.html" data-page="shop">Shop</a></li>
+        <li><a href="portfolio.html" data-page="portfolio">Portfolio</a></li>
+        <li><a href="pricing.html" data-page="pricing">Pricing</a></li>
+        <li><a href="about.html" data-page="about">About</a></li>
+        <li><a href="support.html" data-page="support">Support</a></li>
+      </ul>
+      <a class="btn btn-primary btn-sm" href="contact.html" data-track="cta_quote" data-track-label="header">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+<!-- /partial:header -->
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">Contact</li></ol>
+      <span class="eyebrow">Project inquiry</span>
+      <h1>Tell us about your project</h1>
+      <p>Share what you need and your budget range. You'll receive questions or a written proposal within 1–2 business days.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split split-60">
+      <div>
+        <div id="form-status" tabindex="-1"></div>
+
+        <form class="form panel" id="inquiry-form" novalidate>
+          <div id="error-summary" class="notice notice-error" role="alert" tabindex="-1" hidden>
+            <div><strong>Please fix the following:</strong><ul id="error-list"></ul></div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby="f-name-err" />
+              <p class="field-error" id="f-name-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="150" aria-describedby="f-email-err" />
+              <p class="field-error" id="f-email-err"></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-country">Country <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-country" name="country" autocomplete="country-name" required aria-describedby="f-country-err">
+                <option value="">Select your country</option>
+                <option>Philippines</option>
+                <option>Japan</option>
+                <option>United States</option>
+                <option>Australia</option>
+                <option>Canada</option>
+                <option>Singapore</option>
+                <option>United Arab Emirates</option>
+                <option>United Kingdom</option>
+                <option value="Other">Other</option>
+              </select>
+              <p class="field-error" id="f-country-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-business">Business type <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-business" name="business_type" required aria-describedby="f-business-err">
+                <option value="">Select one</option>
+                <option>Individual / freelancer</option>
+                <option>Teacher / educator</option>
+                <option>Small business / shop</option>
+                <option>Startup</option>
+                <option>School / institution</option>
+                <option>Organization / non-profit</option>
+                <option>Company / enterprise</option>
+                <option>Other</option>
+              </select>
+              <p class="field-error" id="f-business-err"></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-service">Service required <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-service" name="service" required aria-describedby="f-service-err"></select>
+              <p class="field-error" id="f-service-err"></p>
+            </div>
+            <div class="field" id="package-field" hidden>
+              <label for="f-package">Website package</label>
+              <select id="f-package" name="package"></select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-budget">Budget range <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-budget" name="budget" required aria-describedby="f-budget-err"></select>
+              <p class="field-error" id="f-budget-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-timeline">Preferred timeline <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-timeline" name="timeline" required aria-describedby="f-timeline-err">
+                <option value="">Select one</option>
+                <option>As soon as possible</option>
+                <option>Within 2 weeks</option>
+                <option>Within 1 month</option>
+                <option>1–3 months</option>
+                <option>Flexible</option>
+              </select>
+              <p class="field-error" id="f-timeline-err"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-message">Project description <span class="req" aria-hidden="true">*</span></label>
+            <p class="hint" id="f-message-hint">What do you need, who is it for, and are there websites or apps you like? (at least 20 characters)</p>
+            <textarea id="f-message" name="message" required minlength="20" maxlength="5000" aria-describedby="f-message-hint f-message-err"></textarea>
+            <p class="field-error" id="f-message-err"></p>
+          </div>
+
+          <!-- Spam protection: honeypot (hidden from people, filled by bots) -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="f-website">Leave this field empty</label>
+            <input id="f-website" name="botcheck" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="field">
+            <label class="check-field" for="f-consent">
+              <input id="f-consent" name="consent" type="checkbox" required aria-describedby="f-consent-err" />
+              <span>I agree that DarskeeWorks may use these details to reply to my inquiry, as described in the <a href="privacy.html#website">privacy policy</a>. <span class="req" aria-hidden="true">*</span></span>
+            </label>
+            <p class="field-error" id="f-consent-err"></p>
+          </div>
+
+          <button class="btn btn-primary btn-lg" type="submit" id="submit-btn">Send inquiry</button>
+          <p class="small muted" id="delivery-note"></p>
+        </form>
+      </div>
+
+      <aside class="stack">
+        <h2 class="h3">Other ways to reach us</h2>
+        <div class="contact-channels">
+          <a class="channel" href="mailto:darilquervo.dev@gmail.com" data-track="contact_click" data-track-label="email">
+            <span class="icon-tile" data-icon="chat"></span>
+            <span><small>Email</small><strong>darilquervo.dev@gmail.com</strong></span>
+          </a>
+          <a class="channel" href="https://line.me/ti/p/YMigpeLlZr" target="_blank" rel="noopener" data-track="contact_click" data-track-label="line">
+            <span class="icon-tile" data-icon="chat"></span>
+            <span><small>LINE</small><strong>Message us on LINE</strong></span>
+          </a>
+          <a class="channel" href="https://github.com/darilquervodev-spec" target="_blank" rel="noopener">
+            <span class="icon-tile" data-icon="software"></span>
+            <span><small>GitHub</small><strong>github.com/darilquervodev-spec</strong></span>
+          </a>
+        </div>
+        <div class="panel stack">
+          <h3 class="card-title">What happens next</h3>
+          <ol class="small">
+            <li>We review your inquiry and may ask a few questions.</li>
+            <li>You receive a written proposal with scope, timeline and price.</li>
+            <li>Work starts after you approve and pay the 50% down payment.</li>
+          </ol>
+          <p class="small muted">Based in Fukuoka, Japan (JST, UTC+9). Replies within 1–2 business days. We work in English, Tagalog and Cebuano.</p>
+        </div>
+        <div class="panel stack">
+          <h3 class="card-title">Need help with an app?</h3>
+          <p class="card-text small">For support with a published DarskeeWorks app, see <a href="support.html#app-support">app support</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<!-- partial:footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <img src="assets/brand/dw-mark-64.png" alt="" width="36" height="36" loading="lazy" />
+          <span>Darskee<span>Works</span></span>
+        </a>
+        <p>Digital studio and marketplace. Websites, mobile apps, business software and ready-made digital products.</p>
+        <p>Based in Fukuoka, Japan · Serving the Philippines and clients worldwide.</p>
+      </div>
+      <div>
+        <h2>Studio</h2>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="support.html">Support &amp; Maintenance</a></li>
+          <li><a href="contact.html">Request a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Shop</h2>
+        <ul>
+          <li><a href="shop.html">All products</a></li>
+          <li><a href="shop.html?category=teacher-resources">Teacher Resources</a></li>
+          <li><a href="shop.html?category=business-templates">Business Templates</a></li>
+          <li><a href="shop.html?category=website-templates">Website Templates</a></li>
+          <li><a href="shop.html?category=software-applications">Software &amp; Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:darilquervo.dev@gmail.com">Email</a></li>
+          <li><a href="https://line.me/ti/p/YMigpeLlZr" target="_blank" rel="noopener">LINE</a></li>
+          <li><a href="https://github.com/darilquervodev-spec" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="refund-policy.html">Refund Policy</a></li>
+          <li><a href="license.html">Product License</a></li>
+          <li><a href="service-agreement.html">Service Agreement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> DarskeeWorks · Daril Quervo</span>
+      <span>Service prices in PHP · Digital products charged in the currency shown at checkout</span>
+    </div>
+  </div>
+</footer>
+<!-- /partial:footer -->
+</body>
+</html>
