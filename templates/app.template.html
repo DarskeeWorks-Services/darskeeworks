@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{NAME}} — DarskeeWorks</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<link rel="canonical" href="{{CANONICAL_URL}}" />
+<link rel="icon" type="image/png" href="../../icon.png" />
+<link rel="apple-touch-icon" href="../../icon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{NAME}} — DarskeeWorks" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:url" content="{{CANONICAL_URL}}" />
+<meta property="og:image" content="{{OG_IMAGE}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{NAME}} — DarskeeWorks" />
+<meta name="twitter:description" content="{{DESCRIPTION}}" />
+<meta name="twitter:image" content="{{OG_IMAGE}}" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../styles.css" />
+<script type="application/ld+json">{{JSON_LD}}</script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../../index.html" class="brand">Darskee<span>Works</span></a>
+    <div class="navlinks">
+      <a href="../../index.html#work">All work</a>
+      <a href="../../index.html#contact" class="btn-sm">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header class="app-hero">
+  <div class="wrap">
+    <a href="../../index.html#work" class="back-link" style="display:inline-flex;align-items:center;gap:.4rem;font-family:'Space Mono',monospace;font-size:.78rem;color:var(--txt-mut);text-decoration:none;margin-bottom:22px;">← Back to all work</a>
+    <div class="app-hero-top">
+      <img class="app-icon" src="{{ICON}}" alt="{{NAME}} icon" loading="lazy" onerror="this.style.display='none'" />
+      <div class="app-title">
+        <div class="platform-tag">{{PLATFORM}}</div>
+        <h1>{{NAME}}</h1>
+      </div>
+      {{STATUS_BADGE}}
+    </div>
+    <p class="app-desc">{{DESCRIPTION}}</p>
+    <div class="store-buttons">
+      {{STORE_BUTTONS_HTML}}
+    </div>
+  </div>
+</header>
+
+{{FEATURES_SECTION}}
+
+{{SCREENSHOTS_SECTION}}
+
+{{CHANGELOG_SECTION}}
+
+<section class="app-section">
+  <div class="wrap">
+    <h2>Links</h2>
+    <div class="app-links-row">
+      <a href="{{PRIVACY_URL}}" target="_blank" rel="noopener">Privacy Policy</a>
+      <a href="{{SUPPORT_URL}}" target="_blank" rel="noopener">Support</a>
+      <a href="{{TERMS_URL}}" target="_blank" rel="noopener">Terms</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="../../index.html" class="fbrand">Darskee<span>Works</span></a>
+    <small>© Daril Quervo — Developer for trade &amp; small businesses</small>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -31,6 +31,17 @@ You said "proceed all" without answering the open questions. These are the defau
 
 ---
 
+## 1b. Merged with main's July 13 work (app pages, terms, marketing page)
+
+Remote `main` had commits (July 13, 2026) that were not in the local copy used for the audit. They were merged in, not overwritten:
+
+- **App pages kept.** `scripts/build-apps.js` still generates `apps/<slug>/` during deploy (the folder is git-ignored and built in CI). `tools/build-sitemap.mjs` runs after it, so the sitemap includes the app pages. Case studies link to each app page.
+- **`mochisensei-marketing.html` and `AppStoreScreenshots/` kept and published.** Mochi Sensei's `marketing` field links to the marketing page, and no generated app page is made for it (same rule as before).
+- **Your Terms of Service (July 13)** were moved into `service-agreement.html`, keeping your wording: 50% deposit, balance before handoff, milestones, late payment, 2 revision rounds by default, 30-day bug fixes, IP and third-party licenses, liability, cancellation and governing law. `terms.html` is now the general site, shop and services terms and points to the Service Agreement. Package support periods were aligned to your 30 days. The refund policy was aligned to your cancellation clause.
+- **Admin:** main's version (Advanced fields: status, slug, version, tags, features, screenshots, changelog, store links) was kept. These fixes were reapplied on top: login and hash removed, local-only notice, Desktop Software platform, unknown fields preserved on save, URL validation (including screenshots and store links).
+- **Superseded by the redesign:** main's homepage additions (process steps, FAQ, platform filters, live stats), which the new homepage covers, and main's 404 page. `assets/js/site.js` stays in the repo for the generated app pages' history, but the new pages don't use it.
+- `works.json` optional fields from main (`slug`, `status`, `storeLinks`, `features`, …) are respected. `slug` sets case-study and privacy anchors when present.
+
 ## 2. Architecture
 
 The site is still plain static HTML, CSS and vanilla JS. There is no framework, no npm dependency and no build step on the server, so it remains fully GitHub Pages compatible.

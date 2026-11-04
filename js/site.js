@@ -183,7 +183,12 @@
   };
 
   DW.caseStudy = function (p) { return (window.DW_CASE_STUDIES || {})[p.name] || {}; };
-  DW.projectSlug = function (p) { return DW.caseStudy(p).slug || DW.slugify(p.name); };
+  DW.projectSlug = function (p) { return DW.caseStudy(p).slug || p.slug || DW.slugify(p.name); };
+  /** Generated app page (scripts/build-apps.js) or the project's bespoke marketing page. */
+  DW.appPageUrl = function (p) {
+    if (p.marketing && !/^https?:/i.test(p.marketing)) return p.marketing;
+    return p.marketing ? '' : 'apps/' + (p.slug || DW.slugify(p.name)) + '/';
+  };
   DW.caseStudyUrl = function (p) { return 'case-study.html?p=' + encodeURIComponent(DW.projectSlug(p)); };
 
   DW.projectCategory = function (p) {
@@ -258,7 +263,7 @@
     var meta = DW.el('div', { class: 'proj-meta' }, [
       DW.el('a', { href: DW.privacyUrl(p), text: 'Privacy' }),
       DW.el('a', { href: DW.supportUrl(p), text: 'Support' }),
-      DW.safeUrl(p.marketing) ? DW.el('a', { href: p.marketing, text: 'Marketing' }) : null
+      DW.safeUrl(p.marketing) ? DW.el('a', { href: p.marketing, text: 'Product page' }) : null
     ]);
     return DW.el('article', { class: 'card proj-card', dataset: { category: DW.projectCategory(p) } }, [
       thumb,

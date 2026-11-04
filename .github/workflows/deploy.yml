@@ -21,6 +21,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # build-apps.js writes apps/<slug>/ pages (and a basic sitemap);
+      # build-sitemap.mjs then writes the full sitemap including those pages.
+      - name: Generate app pages & sitemap
+        run: |
+          node scripts/build-apps.js
+          node tools/build-sitemap.mjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -34,7 +46,7 @@ jobs:
           rm -f _site/admin.html   # local-only editor, never published
           cp works.json robots.txt sitemap.xml CNAME .nojekyll favicon.ico _site/
           cp styles.css icon.png daril.jpg _site/
-          cp -r css js assets _site/
+          cp -r css js assets apps AppStoreScreenshots _site/
           test -f cv.pdf && cp cv.pdf _site/ || true
           echo "Published files:" && find _site -type f | sort
 

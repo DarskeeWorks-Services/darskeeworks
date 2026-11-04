@@ -12,7 +12,7 @@
     DW.clear(root);
     projects.forEach(function (p) {
       var policy = DW.safeUrl(p.privacy);
-      root.appendChild(el('div', { class: 'panel', id: DW.slugify(p.name) }, [
+      root.appendChild(el('div', { class: 'panel', id: p.slug || DW.slugify(p.name) }, [
         el('span', { class: 'badge badge-outline', text: p.platform || '' }),
         el('h3', { class: 'mt-3', text: p.name }),
         el('p', { class: 'small muted', text: p.description || '' }),

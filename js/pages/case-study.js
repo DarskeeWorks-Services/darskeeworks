@@ -42,6 +42,7 @@
 
     var actions = DW.$('#cs-actions');
     if (DW.safeUrl(p.link)) actions.appendChild(el('a', { class: 'btn btn-primary', href: p.link, text: DW.liveLabel(p) === 'Visit site' ? 'Visit live project' : 'View on ' + DW.liveLabel(p) }));
+    if (DW.appPageUrl(p)) actions.appendChild(el('a', { class: 'btn btn-ghost-light', href: DW.appPageUrl(p), text: p.marketing ? 'Product page' : 'App page' }));
     actions.appendChild(el('a', { class: 'btn btn-ghost-light', href: DW.privacyUrl(p), text: 'Privacy policy' }));
 
     if (p.image) {

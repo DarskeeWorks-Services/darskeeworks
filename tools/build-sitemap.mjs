@@ -32,8 +32,11 @@ for (const f of ['js/data/case-studies.js', 'js/data/products.js']) {
 const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const cs = sandbox.window.DW_CASE_STUDIES || {};
 for (const p of works) {
-  const slug = (cs[p.name] && cs[p.name].slug) || slugify(p.name);
+  const slug = (cs[p.name] && cs[p.name].slug) || p.slug || slugify(p.name);
   pages.push([`case-study.html?p=${encodeURIComponent(slug)}`, '0.6']);
+  // Same rule as scripts/build-apps.js: a bespoke marketing page replaces the generated app page
+  if (p.marketing && /^[\w\-]+\.html$/.test(p.marketing)) pages.push([p.marketing, '0.7']);
+  else if (!p.marketing) pages.push([`apps/${p.slug || slugify(p.name)}/`, '0.5']);
 }
 for (const p of sandbox.window.DW_PRODUCTS || []) {
   if (p.status === 'published') pages.push([`product.html?id=${encodeURIComponent(p.id)}`, '0.7']);

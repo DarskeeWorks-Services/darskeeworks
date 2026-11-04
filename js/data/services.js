@@ -159,7 +159,7 @@ window.DW_SERVICES = {
       features: ['Mobile-responsive design', 'Contact links (email, Messenger, WhatsApp or LINE)', 'Basic SEO setup (titles, descriptions)', 'Free static hosting setup where suitable'],
       revisions: '2 revision rounds',
       delivery: '5–7 working days',
-      support: '14 days of post-launch fixes'
+      support: '30 days of post-launch fixes'
     },
     {
       id: 'professional',
