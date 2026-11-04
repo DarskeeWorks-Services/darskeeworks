@@ -45,11 +45,11 @@ The workflow's **Assemble site** step prints every file it publishes. Confirm th
 6. In Google Search Console, submit `https://darskeeworks.online/sitemap.xml`.
 
 ## 4. Rollback
-The original site is preserved on branch **`backup/pre-transformation-2026-11-04`**, which points at commit `d1f327d`.
+The site that was live before the redesign is preserved on branch **`backup/live-before-redesign`** (commit `bb502a5`, July 13 2026). `backup/pre-transformation-2026-11-04` (`d1f327d`) is the older state that the audit was based on.
 
 Push the backup branch to GitHub now, so the rollback point also exists off this machine:
 ```bash
-git push origin backup/pre-transformation-2026-11-04
+git push origin backup/live-before-redesign backup/pre-transformation-2026-11-04
 ```
 
 **Option A: revert the merge (recommended, keeps history)**
@@ -62,7 +62,7 @@ git push origin main            # redeploys the previous site automatically
 **Option B: emergency restore of the exact old site**
 ```bash
 git checkout main && git pull
-git checkout backup/pre-transformation-2026-11-04 -- .
+git checkout backup/live-before-redesign -- .
 git commit -m "Restore pre-transformation site"
 git push origin main
 ```
