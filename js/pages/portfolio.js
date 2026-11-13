@@ -9,9 +9,10 @@
 
   DW.loadWorks().then(function (projects) {
     var s = DW.projectStats(projects);
-    DW.$('#portfolio-summary').textContent =
-      s.android + ' Android and ' + s.ios + ' iOS apps published, ' + s.web + ' live websites and web apps, and ' +
-      s.desktop + ' desktop software product' + (s.desktop === 1 ? '' : 's') + '.';
+    var parts = [s.android + ' Android and ' + s.ios + ' iOS apps published', s.web + ' live websites and web apps'];
+    if (s.desktop) parts.push(s.desktop + ' desktop software product' + (s.desktop === 1 ? '' : 's'));
+    var last = parts.pop();
+    DW.$('#portfolio-summary').textContent = parts.join(', ') + ' and ' + last + '.';
 
     var cats = [{ id: 'all', title: 'All projects' }].concat(Object.keys(DW.PROJECT_CATEGORIES).filter(function (k) {
       return projects.some(function (p) { return DW.projectCategory(p) === k; });

@@ -62,12 +62,43 @@
     },
     {
       "platform": "Website",
-      "name": "DarsKaraoke - Sing Your Heart Out",
-      "description": "DarsKaraoke is a web app for singing karaoke songs with your friends.",
-      "image": "assets/darskaraoke.png",
-      "link": "https://darskaraoke.up.railway.app",
-      "privacy": "https://darskeeworks.online/privacy-darskaraoke.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20DarsKaraoke"
+      "name": "DarskeeAI.com - AI Video Creation Studio",
+      "description": "An all-in-one AI creation studio that turns ideas into scripts, consistent characters, images, voiceovers and finished short videos for TikTok, Reels and YouTube Shorts.",
+      "image": "assets/darskeeai.png",
+      "link": "https://darskeeai.com/",
+      "privacy": "https://darskeeai.com/privacy",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20DarskeeAI.com",
+      "marketing": ""
+    },
+    {
+      "platform": "Website",
+      "name": "Darskee AI - Friendly AI Assistant",
+      "description": "A friendly AI chat assistant for writing, learning, brainstorming and coding, powered by a self-hosted open model.",
+      "image": "assets/darskee-ai-chat.png",
+      "link": "https://chat.darskeeai.com/",
+      "privacy": "https://chat.darskeeai.com/privacy",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20AI",
+      "marketing": ""
+    },
+    {
+      "platform": "Website",
+      "name": "Darskee JLPT AI - Japanese Study Platform",
+      "description": "Structured Japanese study from JLPT N5 to N1: lessons, vocabulary, kanji, grammar, reading, listening, spaced-repetition flashcards and timed mock exams.",
+      "image": "assets/darskee-jlpt-ai.png",
+      "link": "https://jlpt.darskeeai.com/",
+      "privacy": "https://jlpt.darskeeai.com/privacy",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20JLPT%20AI",
+      "marketing": ""
+    },
+    {
+      "platform": "Website",
+      "name": "Carpentry Calculators",
+      "description": "Free practical calculators for carpentry, woodworking and construction, in imperial, metric and Japanese units. No sign-up needed.",
+      "image": "assets/carpentry-calculators.png",
+      "link": "https://carpentry-calculators-production.up.railway.app/",
+      "privacy": "https://carpentry-calculators-production.up.railway.app/privacy/",
+      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Carpentry%20Calculators",
+      "marketing": ""
     },
     {
       "platform": "Website",
@@ -87,16 +118,6 @@
       "link": "https://darilquervo.com",
       "privacy": "https://darskeeworks.online/privacy-portfolio.html",
       "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Daril%20Quervo%20Portfolio",
-      "marketing": ""
-    },
-    {
-      "platform": "Desktop Software",
-      "name": "Darskee Automation",
-      "description": "AI-powered automation tool: generates viral scripts, AI images, voiceovers, captions, and renders complete videos ready for Facebook Reels, TikTok, and YouTube Shorts.",
-      "image": "assets/darskee-automation.png",
-      "link": "https://darskee-automation-site-production.up.railway.app/",
-      "privacy": "https://darskeeworks.online/privacy-darskee-automation.html",
-      "support": "mailto:darilquervo.dev@gmail.com?subject=Support%3A%20Darskee%20Automation",
       "marketing": ""
     }
   ]

@@ -21,13 +21,13 @@ if (SHOTS) mkdirSync(SHOTS, { recursive: true });
 
 const PAGES = [
   'index.html', 'services.html', 'shop.html', 'product.html?id=ultimate-teacher-planner',
-  'product.html?id=darskee-automation', 'product.html?id=does-not-exist', 'portfolio.html',
-  'case-study.html?p=moofy', 'case-study.html?p=darskee-automation', 'pricing.html', 'about.html',
+  'product.html?id=mochi-sensei', 'product.html?id=does-not-exist', 'portfolio.html',
+  'case-study.html?p=moofy', 'case-study.html?p=darskeeai', 'pricing.html', 'about.html',
   'contact.html', 'contact.html?service=website-development&package=business', 'support.html',
   'privacy.html', 'privacy.html#moofy-your-budget-buddy', 'terms.html', 'refund-policy.html',
   'license.html', 'service-agreement.html', '404.html', 'admin.html',
   'privacy-moofy.html', 'support-mochisensei.html', 'privacy-mochisensei.html',
-  'mochisensei-marketing.html', 'apps/moofy-your-budget-buddy/', 'apps/darskee-automation/'
+  'mochisensei-marketing.html', 'apps/moofy-your-budget-buddy/', 'apps/carpentry-calculators/'
 ];
 
 const results = [];
@@ -209,7 +209,7 @@ await check('shop filter/search/sort', async () => {
   await p.eval(`(() => { const i = document.getElementById('shop-search'); i.value = ''; i.dispatchEvent(new Event('input')); const s = document.getElementById('shop-sort'); s.value = 'price-asc'; s.dispatchEvent(new Event('change')); })()`);
   const first = await p.eval(`document.querySelector('#shop-grid .card-title').textContent`);
   await p.close();
-  assert(all === 15 && teacher === 4 && url.includes('teacher-resources') && search.length === 2 && empty, JSON.stringify({ all, teacher, url, search, empty }));
+  assert(all === 14 && teacher === 4 && url.includes('teacher-resources') && search.length === 2 && empty, JSON.stringify({ all, teacher, url, search, empty }));
   return `all=${all} teacher=${teacher} search=${search.join(', ')} cheapest="${first}"`;
 });
 
@@ -233,10 +233,10 @@ await check('draft product is not purchasable', async () => {
 
 await check('external product links to official listing', async () => {
   const p = await openPage();
-  await p.goto('product.html?id=darskee-automation');
+  await p.goto('product.html?id=mochi-sensei');
   const r = await p.eval(`(() => { const a = document.querySelector('.buy-box a[data-track=checkout_click]'); return { href: a && a.href, target: a && a.target, rel: a && a.rel, robots: document.querySelector('meta[name=robots]') ? 'noindex' : 'index' }; })()`);
   await p.close();
-  assert(r.href === 'https://darskee-automation-site-production.up.railway.app/' && r.target === '_blank' && r.rel === 'noopener' && r.robots === 'index', JSON.stringify(r));
+  assert(r.href === 'https://apps.apple.com/jp/app/mochi-sensei-jlpt-study-master/id6787880229' && r.target === '_blank' && r.rel === 'noopener' && r.robots === 'index', JSON.stringify(r));
   return r.href;
 });
 
@@ -275,14 +275,14 @@ await check('portfolio filter', async () => {
   const web = await p.eval(`document.querySelectorAll('#portfolio-grid .card:not([hidden])').length`);
   const summary = await p.eval(`document.getElementById('portfolio-summary').textContent`);
   await p.close();
-  assert(all === 10 && web === 3, `all=${all} web=${web}`);
+  assert(all === 12 && web === 6, `all=${all} web=${web}`);
   return `${all} projects, ${web} web · "${summary}"`;
 });
 
 await check('legacy privacy anchors', async () => {
   const p = await openPage();
   await p.goto('privacy.html');
-  const ids = await p.eval(`['solar-pv-calc-solar-designer','moofy-your-budget-buddy','darskee-automation','guroassist-ph-your-virtual-assistant'].map(id => !!document.getElementById(id))`);
+  const ids = await p.eval(`['solar-pv-calc-solar-designer','moofy-your-budget-buddy','carpentry-calculators','guroassist-ph-your-virtual-assistant'].map(id => !!document.getElementById(id))`);
   await p.close();
   assert(ids.every(Boolean), JSON.stringify(ids));
   return 'slug anchors present';
@@ -313,7 +313,7 @@ await check('admin preserves marketing field', async () => {
   const r = await p.eval(`(() => { projects[0].marketing = 'https://example.com/promo'; projects[0].extra = 'keep-me'; openEdit(0); document.getElementById('btn-save').click(); return { marketing: projects[0].marketing, extra: projects[0].extra }; })()`);
   const blocked = await p.eval(`(() => { let msg = ''; window.alert = (m) => { msg = m; }; openEdit(1); document.getElementById('f-link').value = 'javascript:alert(1)'; document.getElementById('btn-save').click(); return msg; })()`);
   await p.close();
-  assert(n === 10 && r.marketing === 'https://example.com/promo' && r.extra === 'keep-me' && /must start/.test(blocked), JSON.stringify({ n, r, blocked }));
+  assert(n === 12 && r.marketing === 'https://example.com/promo' && r.extra === 'keep-me' && /must start/.test(blocked), JSON.stringify({ n, r, blocked }));
   return `${n} projects listed; unknown fields kept; javascript: URL rejected`;
 });
 

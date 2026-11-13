@@ -58,13 +58,37 @@ window.DW_CASE_STUDIES = {
     implementation: ['iOS app published on the App Store', 'Spaced-repetition flashcard system', 'Progress synced through the user’s own iCloud (CloudKit)', 'Optional AI features use the user’s own OpenAI or Anthropic API key, stored on-device', 'Free core features with optional Pro subscription or lifetime purchase'],
     results: ['Published and available on the App Store']
   },
-  'DarsKaraoke - Sing Your Heart Out': {
-    slug: 'darskaraoke',
+  'DarskeeAI.com - AI Video Creation Studio': {
+    slug: 'darskeeai',
     category: 'web',
-    problem: 'Friends wanted a simple way to sing karaoke together from a browser.',
-    solution: 'A karaoke web app that runs in the browser with no registration.',
-    implementation: ['Web app hosted on Railway', 'No account required; session kept in browser storage'],
+    problem: 'Making short-form videos for TikTok, Reels and Shorts takes hours of scripting, visuals, voiceover and editing.',
+    solution: 'An all-in-one AI creation studio: pick an idea, get a script and storyboard, add your own images or AI visuals, captions and voice, then download the MP4.',
+    implementation: ['Web app live at darskeeai.com', 'AI video, images, scenes, scripts, voiceovers and face swap in one place', 'No account needed to write scripts; free MP4 export', 'Credits used only for optional AI generation'],
     results: ['Live web app']
+  },
+  'Darskee AI - Friendly AI Assistant': {
+    slug: 'darskee-ai-chat',
+    category: 'web',
+    problem: 'People want a helpful AI assistant for everyday writing, learning and coding without depending on a paid AI cloud.',
+    solution: 'A friendly AI chat assistant running on a self-hosted open model.',
+    implementation: ['Web app live at chat.darskeeai.com', 'Self-hosted open language model', 'Free plan available; no card needed to start'],
+    results: ['Live web app']
+  },
+  'Darskee JLPT AI - Japanese Study Platform': {
+    slug: 'darskee-jlpt-ai',
+    category: 'web',
+    problem: 'JLPT learners juggle separate tools for lessons, flashcards and exam practice across levels N5 to N1.',
+    solution: 'One structured study platform covering N5 to N1 with lessons, flashcards, optional AI explanations and exam preparation.',
+    implementation: ['Web app live at jlpt.darskeeai.com', 'Vocabulary, kanji, grammar, reading and listening for every level', 'Spaced-repetition flashcards and timed mock exams', 'Progress tracking; free plan included'],
+    results: ['Live web app']
+  },
+  'Carpentry Calculators': {
+    slug: 'carpentry-calculators',
+    category: 'web',
+    problem: 'Carpenters and DIY builders need quick, reliable measurements for stairs, framing, materials and more.',
+    solution: 'A free collection of practical carpentry, woodworking and construction calculators with worked examples and guides.',
+    implementation: ['Website with 16 calculators', 'Imperial, metric and Japanese units', 'Free, no sign-up required'],
+    results: ['Live website']
   },
   'GuroAssist PH - Your Virtual Assistant': {
     slug: 'guroassist-ph',
@@ -81,13 +105,5 @@ window.DW_CASE_STUDIES = {
     solution: 'A fast, static personal portfolio website.',
     implementation: ['Static website', 'No tracking scripts or analytics'],
     results: ['Live website']
-  },
-  'Darskee Automation': {
-    slug: 'darskee-automation',
-    category: 'software',
-    problem: 'Creating short-form videos for Reels, TikTok and Shorts takes hours of scripting, image creation, voiceover and editing.',
-    solution: 'Desktop software that generates scripts, AI images, voiceovers and captions and renders complete videos.',
-    implementation: ['Desktop application', 'Connects to third-party AI services such as Fal AI using the user’s own API keys', 'API credentials and generated files stored locally'],
-    results: ['Available for purchase on its official site']
   }
 };

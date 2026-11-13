@@ -286,29 +286,6 @@ window.DW_PRODUCT_CATEGORIES = [
 
     /* ── Real, existing software (sold or distributed on their official listings) ── */
     {
-      id: 'darskee-automation',
-      title: 'Darskee Automation',
-      category: 'software-applications',
-      price: 2499, currency: 'PHP',
-      priceNote: 'One-time license. Check the official site for the current price before buying.',
-      status: 'published', kind: 'external',
-      featured: true,
-      badges: ['Desktop software'],
-      short: 'AI-powered tool that creates short-form videos for Reels, TikTok and Shorts.',
-      description: 'Desktop software that generates scripts, AI images, voiceovers and captions, and renders complete short-form videos ready for Facebook Reels, TikTok and YouTube Shorts.',
-      benefits: ['Turn an idea into a finished short video', 'Generate scripts, images, voiceovers and captions in one tool', 'Your API keys and output files stay on your computer'],
-      includes: ['Darskee Automation desktop software'],
-      formats: ['Desktop application'], compatibility: ['See the official site for system requirements'],
-      usage: ['Purchase and download from the official Darskee Automation site.', 'Enter your own AI service API keys (for example Fal AI) in the app.'],
-      license: { type: 'Software license', summary: 'Licensed under the terms shown on the official Darskee Automation site.', allowed: [], notAllowed: [] },
-      images: ['assets/opt/darskee-automation-960.webp'], previews: [],
-      checkoutUrl: 'https://darskee-automation-site-production.up.railway.app/',
-      ctaLabel: 'View on official site',
-      privacyUrl: 'privacy-darskee-automation.html',
-      faqs: [{ q: 'Are AI generation costs included?', a: 'No. The software connects to third-party AI services using your own API keys, which those providers bill separately.' }],
-      related: ['social-media-canva-bundle']
-    },
-    {
       id: 'mochi-sensei',
       title: 'Mochi Sensei – JLPT Study Master',
       category: 'software-applications',

@@ -38,7 +38,7 @@ window.DW_SERVICES = {
       timeline: '5 days to 4 weeks, depending on package',
       price: 4999,
       pricePrefix: 'From',
-      portfolio: ['GuroAssist PH - Your Virtual Assistant', 'DarsKaraoke - Sing Your Heart Out', 'Daril Quervo Portfolio'],
+      portfolio: ['DarskeeAI.com - AI Video Creation Studio', 'Carpentry Calculators', 'GuroAssist PH - Your Virtual Assistant', 'Daril Quervo Portfolio'],
       faqs: [
         { q: 'Do I need to buy hosting?', a: 'Most brochure and catalog sites can run on free static hosting such as GitHub Pages. If your site needs a server or database, hosting costs are explained before you commit.' },
         { q: 'Can I update the website myself?', a: 'Yes for simple text and images, using the handover guide. Larger changes can be covered by a maintenance plan or quoted separately.' },
@@ -92,7 +92,7 @@ window.DW_SERVICES = {
       deliverables: ['Working application', 'Source code', 'User guide', 'Training session'],
       timeline: 'Typically 3–10 weeks, confirmed in your proposal',
       price: null,
-      portfolio: ['Darskee-Sales & Inventory App', 'Darskee Automation'],
+      portfolio: ['Darskee-Sales & Inventory App', 'Carpentry Calculators'],
       faqs: [
         { q: 'Can it work without internet?', a: 'Yes, offline operation is possible for many tools — the Darskee Sales & Inventory app works fully offline.' },
         { q: 'Will my data be shared?', a: 'No. How and where data is stored is agreed with you in the proposal.' }
@@ -117,7 +117,7 @@ window.DW_SERVICES = {
       deliverables: ['Working tool or workflow', 'Setup guide', 'Documentation of connected services'],
       timeline: 'Typically 1–6 weeks, confirmed in your proposal',
       price: null,
-      portfolio: ['Darskee Automation', 'GuroAssist PH - Your Virtual Assistant', 'Mochi Sensei – JLPT Study Master'],
+      portfolio: ['DarskeeAI.com - AI Video Creation Studio', 'Darskee AI - Friendly AI Assistant', 'Darskee JLPT AI - Japanese Study Platform', 'GuroAssist PH - Your Virtual Assistant'],
       faqs: [
         { q: 'Do AI services cost extra?', a: 'Usually yes. Third-party AI providers bill usage directly to your account. Expected costs are explained before you commit.' },
         { q: 'Is my data used to train AI?', a: 'That depends on the provider you choose. Each provider’s policy is disclosed so you can decide.' }

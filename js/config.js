@@ -60,11 +60,11 @@ window.DW_CONFIG = {
 
   /* Portfolio: works.json project names to feature on the homepage, in order. */
   featuredProjects: [
-    'Darskee Automation',
+    'DarskeeAI.com - AI Video Creation Studio',
+    'Darskee JLPT AI - Japanese Study Platform',
     'GuroAssist PH - Your Virtual Assistant',
     'Mochi Sensei – JLPT Study Master',
     'Darskee-Sales & Inventory App',
-    'Moofy - Your Budget Buddy',
-    'Solar PV Calc - Solar Designer'
+    'Moofy - Your Budget Buddy'
   ]
 };
