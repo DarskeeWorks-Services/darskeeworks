@@ -1,7 +1,7 @@
 # DarskeeWorks — Implementation Guide
 
-- **Branch:** `feature/digital-studio` (not committed, not deployed)
-- **Backup of the original site:** branch `backup/pre-transformation-2026-11-04`
+- **Status:** merged into `main` and deployed to darskeeworks.online on 2026-11-04 (post-deploy smoke test passed 2026-11-13)
+- **Rollback point (site live before the redesign):** branch `backup/live-before-redesign` (`bb502a5`); older audit baseline: `backup/pre-transformation-2026-11-04`
 - **Date:** 2026-11-04
 
 This guide explains what was built, where every setting lives, and how to do the common jobs: publishing a product, connecting checkout and the form, and changing prices.
